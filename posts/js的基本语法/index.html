@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="JS的基本语法">
+<meta itemprop="description" content="什么是表达式和语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3;这条语句先用 var 命令，声明了变量 a ，然后将 1 &#43; 3 的运算结果赋值给变量 a。
+1 &#43; 3叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。
+var a = 1 &#43; 3 ; var b = &#39;abc&#39;;分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。
+;;;上面的代码就表示 3 个空语句。
+表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。
+1 &#43; 3;&#39;abc&#39;;上面两行语句只是单纯地产生一个值，并没有任何实际的意义。
+   标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。
+标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。
+ 第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。 第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。  简单说，标识符命名规则如下。">
+<meta itemprop="datePublished" content="2020-01-01T13:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-01T13:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="653">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="JS的基本语法" />
+<meta property="og:description" content="什么是表达式和语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3;这条语句先用 var 命令，声明了变量 a ，然后将 1 &#43; 3 的运算结果赋值给变量 a。
+1 &#43; 3叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。
+var a = 1 &#43; 3 ; var b = &#39;abc&#39;;分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。
+;;;上面的代码就表示 3 个空语句。
+表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。
+1 &#43; 3;&#39;abc&#39;;上面两行语句只是单纯地产生一个值，并没有任何实际的意义。
+   标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。
+标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。
+ 第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。 第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。  简单说，标识符命名规则如下。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+<meta property="article:published_time" content="2020-01-01T13:12:19+08:00" />
+<meta property="article:modified_time" content="2020-01-01T13:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS的基本语法"/>
+<meta name="twitter:description" content="什么是表达式和语句 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 &#43; 3;这条语句先用 var 命令，声明了变量 a ，然后将 1 &#43; 3 的运算结果赋值给变量 a。
+1 &#43; 3叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。
+var a = 1 &#43; 3 ; var b = &#39;abc&#39;;分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。
+;;;上面的代码就表示 3 个空语句。
+表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。
+1 &#43; 3;&#39;abc&#39;;上面两行语句只是单纯地产生一个值，并没有任何实际的意义。
+   标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。
+标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。
+ 第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。 第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。  简单说，标识符命名规则如下。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>JS的基本语法</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 1, 2020</span></div>
+				<h1>JS的基本语法</h1>
+			</header>
+			<div class="content">
+				<ol>
+<li>
+<p>什么是表达式和语句
+JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。</p>
+<p>语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div><p>这条语句先用 <strong>var</strong> 命令，声明了变量 <strong>a</strong> ，然后将 <strong>1 + 3</strong> 的运算结果赋值给变量 a。</p>
+<p><strong>1 + 3</strong>叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。</p>
+<p>语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="p">;</span> <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="p">;</span>
+</code></pre></div><p>分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="p">;</span><span class="p">;</span><span class="p">;</span>
+</code></pre></div><p>上面的代码就表示 3 个空语句。</p>
+<p>表达式不需要分号结尾。一旦在表达式后面添加分号，则 JavaScript 引擎就将表达式视为语句，这样会产生一些没有任何意义的语句。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="s1">&#39;abc&#39;</span><span class="p">;</span>
+</code></pre></div><p>上面两行语句只是单纯地产生一个值，并没有任何实际的意义。</p>
+</li>
+</ol>
+<ol start="2">
+<li>
+<p>标识符的规则
+标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 <strong>a</strong> 和 <strong>A</strong> 是两个不同的标识符。</p>
+<p>标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。</p>
+<ul>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。</li>
+</ul>
+<p>简单说，标识符命名规则如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="nx">arg0</span>
+<span class="nx">_tmp</span>
+<span class="nx">$elem</span>
+<span class="nx">π</span>
+</code></pre></div><p>下面这些则是不合法的标识符。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="mi">1</span><span class="nx">a</span>  <span class="c1">// 第一个字符不能是数字
+</span><span class="c1"></span><span class="mi">23</span>  <span class="c1">// 同上
+</span><span class="c1"></span><span class="o">*</span><span class="o">*</span><span class="o">*</span>  <span class="c1">// 标识符不能包含星号
+</span><span class="c1"></span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span>  <span class="c1">// 标识符不能包含加号
+</span><span class="c1"></span><span class="o">-</span><span class="nx">d</span>  <span class="c1">// 标识符不能包含减号或连词线
+</span></code></pre></div><p>中文是合法的标识符，可以用作变量名。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">临时变量</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></li>
+<li>
+<p>if else 语句</p>
+<h4 id="if-">if 结构<a href="#if-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>if</strong>结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，<strong>true</strong>表示真，<strong>false</strong>表示伪。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">布尔值</span><span class="p">)</span>
+    <span class="nx">语句</span><span class="p">;</span>
+
+<span class="c1">// 或者
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">布尔值</span><span class="p">)</span> <span class="nx">语句</span><span class="p">;</span>
+</code></pre></div><p>上面是<strong>if</strong>结构的基本形式。需要注意的是，“布尔值”往往由一个条件表达式产生的，必须放在圆括号中，表示对表达式求值。如果表达式的求值结果为<strong>true</strong>，就执行紧跟在后面的语句；如果结果为<strong>false</strong>，则跳过紧跟在后面的语句。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="nx">m</span> <span class="o">=</span> <span class="nx">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div><p>上面代码表示，只有在<strong>m</strong>等于 3 时，才会将其值加上 1。</p>
+<p>这种写法要求条件表达式后面只能有一个语句。如果想执行多个语句，必须在<strong>if</strong>的条件判断之后，加上大括号，表示代码块（多个语句合并成一个语句）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">m</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>建议总是在<strong>if</strong>语句中使用大括号，因为这样方便插入语句。</p>
+<p>注意，if 后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// &#34;2&#34;
+</span></code></pre></div><p>上面代码的原意是，当<strong>x</strong>等于<strong>y</strong>的时候，才执行相关语句。但是，不小心将严格相等运算符写成赋值表达式，结果变成了将<strong>y</strong>赋值给变量<strong>x</strong>，再判断变量 x 的值（等于 2）的布尔值（结果为<strong>true</strong>）。</p>
+<p>这种错误可以正常生成一个布尔值，因而不会报错。为了避免这种情况，有些开发者习惯将常量写在运算符的左边，这样的话，一旦不小心将相等运算符写成赋值运算符，就会报错，因为常量不能被赋值。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 不报错
+</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="mi">2</span> <span class="o">=</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 报错
+</span></code></pre></div><h4 id="ifelse-">if&hellip;else 结构<a href="#ifelse-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>if</strong>代码块后面，还可以跟一个<strong>else</strong>代码块，表示不满足条件时，所要执行的代码。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// 满足条件时，执行的语句
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="c1">// 不满足条件时，执行的语句
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>上面代码判断变量<strong>m</strong>是否等于3，如果等于就执行<strong>if</strong>代码块，否则执行<strong>else</strong>代码块。</p>
+<p>对同一个变量进行多次判断时，多个<strong>if&hellip;else</strong>语句可以连写在一起。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>else代码块总是与离自己最近的那个if语句配对。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>上面代码不会有任何输出，else代码块不会得到执行，因为它跟着的是最近的那个if语句，相当于下面这样。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span><span class="p">;</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>如果想让else代码块跟随最上面的那个if语句，就要改变大括号的位置。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">if</span> <span class="p">(</span><span class="nx">m</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">===</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// world
+</span></code></pre></div></li>
+</ol>
+<ol>
+<li>
+<p>while for 语句</p>
+<h4 id="while-">while 循环<a href="#while-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>while</strong>语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">while</span> <span class="p">(</span><span class="nx">条件</span><span class="p">)</span>
+    <span class="nx">语句</span><span class="p">;</span>
+
+<span class="c1">// 或者
+</span><span class="c1"></span><span class="k">while</span> <span class="p">(</span><span class="nx">条件</span><span class="p">)</span> <span class="nx">语句</span><span class="p">;</span>
+</code></pre></div><p><strong>while</strong>语句的循环条件是一个表达式，必须放在圆括号中。代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">while</span> <span class="p">(</span><span class="nx">条件</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">语句</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>下面是<strong>while</strong>语句的一个例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i 当前为：&#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>上面的代码将循环 100 次，直到 i 等于 100 为止。</p>
+<p>下面的例子是一个无限循环，因为循环条件总是为真。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="for-">for 循环<a href="#for-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>for</strong>语句是循环命令的另一种形式，可以指定循环的起点、终点和终止条件。它的格式如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">for</span> <span class="p">(</span><span class="nx">初始化表达式</span><span class="p">;</span> <span class="nx">条件</span><span class="p">;</span> <span class="nx">递增表达式</span><span class="p">)</span>
+    <span class="nx">语句</span>
+
+<span class="c1">// 或者
+</span><span class="c1"></span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">初始化表达式</span><span class="p">;</span> <span class="nx">条件</span><span class="p">;</span> <span class="nx">递增表达式</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">语句</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>for</strong>语句后面的括号里面，有三个表达式。</p>
+<ul>
+<li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
+<li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
+<li>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</li>
+</ul>
+<p>下面是一个例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 0
+</span><span class="c1"></span><span class="c1">// 1
+</span><span class="c1"></span><span class="c1">// 2
+</span></code></pre></div><p>上面代码中，初始化表达式是 var i = 0，即初始化一个变量 i；测试表达式是 i &lt; x，即只要 i 小于 x，就会执行循环；递增表达式是 i++，即每次循环结束后，i 增大 1。</p>
+<p>所有for循环，都可以改写成while循环。上面的例子改为while循环，代码如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>for语句的三个部分（initialize、test、increment），可以省略任何一个，也可以全部省略。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">)</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码省略了for语句表达式的三个部分，结果就导致了一个无限循环。</p>
+</li>
+<li>
+<p>break continue</p>
+<p><strong>break</strong>语句和<strong>continue</strong>语句都具有跳转作用，可以让代码不按既有的顺序执行。</p>
+<p><strong>break</strong>语句用于跳出代码块或循环。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i 当前为: &#39;</span> <span class="o">+</span>  <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">i</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码只会执行 10 次循环，一旦<strong>i</strong>等于 10，就会跳出循环。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>     <span class="p">{</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 0
+</span><span class="c1"></span><span class="c1">// 1
+</span><span class="c1"></span><span class="c1">// 2
+</span><span class="c1"></span><span class="c1">// 3
+</span></code></pre></div><p>上面代码执行到<strong>i</strong>等于 3，就会跳出循环。</p>
+<p><strong>continue</strong>语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</p>
+<p><strong>for</strong>循环也可以使用<strong>break</strong>语句跳出循环。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span><span class="p">{</span>
+<span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i 当前为：&#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码只有在<strong>i</strong>为奇数时，才会输出<strong>i</strong>的值。如果 i 为偶数，则直接进入下一轮循环。</p>
+<p>如果存在多重循环，不带参数的 break 语句和<strong>continue</strong>语句都只针对最内层循环。</p>
+</li>
+<li>
+<p>label</p>
+<p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="nx">label</span><span class="o">:</span>
+<span class="nx">语句</span>
+</code></pre></div><p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</p>
+<p>标签通常与<strong>break</strong>语句和<strong>continue</strong>语句配合使用，跳出特定的循环。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="nx">top</span><span class="o">:</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">break</span> <span class="nx">top</span><span class="p">;</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i=&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;, j=&#39;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">)</span><span class="p">;</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
+<span class="c1">// i=0, j=0
+</span><span class="c1"></span><span class="c1">// i=0, j=1
+</span><span class="c1"></span><span class="c1">// i=0, j=2
+</span><span class="c1"></span><span class="c1">// i=1, j=0
+</span></code></pre></div><p>上面代码为一个双重循环区块，break 命令后面加上了 top 标签（注意，top 不用加引号），满足条件时，直接跳出双层循环。如果 break 语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+<p>标签也可以用于跳出代码块。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="nx">foo</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">break</span> <span class="nx">foo</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;本行不会输出&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// 1
+</span><span class="c1"></span><span class="c1">// 2
+</span></code></pre></div><p>上面代码执行到<strong>break foo</strong>，就会跳出区块。</p>
+<p>continue 语句也可以与标签配合使用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="nx">top</span><span class="o">:</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">continue</span> <span class="nx">top</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;i=&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;, j=&#39;</span> <span class="o">+</span> <span class="nx">j</span><span class="p">)</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="c1">// i=0, j=0
+</span><span class="c1"></span><span class="c1">// i=0, j=1
+</span><span class="c1"></span><span class="c1">// i=0, j=2
+</span><span class="c1"></span><span class="c1">// i=1, j=0
+</span><span class="c1"></span><span class="c1">// i=2, j=0
+</span><span class="c1"></span><span class="c1">// i=2, j=1
+</span><span class="c1"></span><span class="c1">// i=2, j=2
+</span></code></pre></div><p>上面代码中，<strong>continue</strong>命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果<strong>continue</strong>语句后面不使用标签，则只能进入下一轮的内层循环。</p>
+</li>
+</ol>
+<h3 id="7-">7. 参考链接<a href="#7-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>摘录至阮一峰的 JavaScript 教程<a href="https://wangdoc.com/javascript/basic/grammar.html#%E6%A0%87%E8%AF%86%E7%AC%A6">JavaScript 教程</a></p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>653 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-01-01 13:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>JS对象的基本用法</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/css-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>CSS 知识总结</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="HTML5常用标签">
+<meta itemprop="description" content="一. a 标签的用法   他的作用：
+ 跳转外部页面 跳转内部锚点 跳转到邮箱或电话等    他的属于有:
+href:
+ 取值：  网址例如：  https://qq.com http://qq.com //qq.com(推荐这种)   路径例如：  /a/b/c a/b/c index.html 或者 ./index.html   伪协议：  javascript：代码； maito:邮箱 tel:手机号   id：  href=#xxx；      target:
+ 取值： 内置名字：  _blank _top _parent _self   程序员命名：  window 的 name iframe 的 name    download:">
+<meta itemprop="datePublished" content="2019-12-28T10:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-28T10:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="138">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="HTML5常用标签" />
+<meta property="og:description" content="一. a 标签的用法   他的作用：
+ 跳转外部页面 跳转内部锚点 跳转到邮箱或电话等    他的属于有:
+href:
+ 取值：  网址例如：  https://qq.com http://qq.com //qq.com(推荐这种)   路径例如：  /a/b/c a/b/c index.html 或者 ./index.html   伪协议：  javascript：代码； maito:邮箱 tel:手机号   id：  href=#xxx；      target:
+ 取值： 内置名字：  _blank _top _parent _self   程序员命名：  window 的 name iframe 的 name    download:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" />
+<meta property="article:published_time" content="2019-12-28T10:12:19+08:00" />
+<meta property="article:modified_time" content="2019-12-28T10:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTML5常用标签"/>
+<meta name="twitter:description" content="一. a 标签的用法   他的作用：
+ 跳转外部页面 跳转内部锚点 跳转到邮箱或电话等    他的属于有:
+href:
+ 取值：  网址例如：  https://qq.com http://qq.com //qq.com(推荐这种)   路径例如：  /a/b/c a/b/c index.html 或者 ./index.html   伪协议：  javascript：代码； maito:邮箱 tel:手机号   id：  href=#xxx；      target:
+ 取值： 内置名字：  _blank _top _parent _self   程序员命名：  window 的 name iframe 的 name    download:"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>HTML5常用标签</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Dec 28, 2019</span></div>
+				<h1>HTML5常用标签</h1>
+			</header>
+			<div class="content">
+				<h3 id="-a-">一. a 标签的用法<a href="#-a-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>他的作用：</p>
+<ul>
+<li>跳转外部页面</li>
+<li>跳转内部锚点</li>
+<li>跳转到邮箱或电话等</li>
+</ul>
+</li>
+<li>
+<p>他的属于有:</p>
+<p>href:</p>
+<ul>
+<li>取值：
+<ul>
+<li>网址例如：
+<ul>
+<li><a href="https://qq.com">https://qq.com</a></li>
+<li><a href="http://qq.com">http://qq.com</a></li>
+<li>//qq.com(推荐这种)</li>
+</ul>
+</li>
+<li>路径例如：
+<ul>
+<li>/a/b/c</li>
+<li>a/b/c</li>
+<li>index.html 或者 ./index.html</li>
+</ul>
+</li>
+<li>伪协议：
+<ul>
+<li>javascript：代码；</li>
+<li>maito:邮箱</li>
+<li>tel:手机号</li>
+</ul>
+</li>
+<li>id：
+<ul>
+<li>href=#xxx；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>target:</p>
+<ul>
+<li>取值：</li>
+<li>内置名字：
+<ul>
+<li>_blank</li>
+<li>_top</li>
+<li>_parent</li>
+<li>_self</li>
+</ul>
+</li>
+<li>程序员命名：
+<ul>
+<li>window 的 name</li>
+<li>iframe 的 name</li>
+</ul>
+</li>
+</ul>
+<p>download:</p>
+<p>作用：</p>
+<ul>
+<li>
+<p>不是打开页面，而是下载页面</p>
+</li>
+<li>
+<p>问题：</p>
+</li>
+<li>
+<p>不是所有浏览器都支持，尤其是手机浏览器可能不支持</p>
+</li>
+</ul>
+<p>rel = noopener:</p>
+<p>作用：</p>
+<ul>
+<li>是否新开一个页面</li>
+</ul>
+</li>
+</ol>
+<h3 id="-img-">二. img 标签的用法:<a href="#-img-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>他的作用：</p>
+<ul>
+<li>发出 get 请求，展示一张图片</li>
+</ul>
+</li>
+<li>
+<p>他的属于有:</p>
+<ul>
+<li>alt:属性包含一条对图像的文本描述，这不是强制性的，但对可访问性而言，它难以置信地有用——屏幕阅读器会将这些描述读给需要使用阅读器的使用者听，让他们知道图像的含义。</li>
+</ul>
+<ul>
+<li>
+<p>height:图片的高度</p>
+</li>
+<li>
+<p>width:图片的宽度</p>
+</li>
+<li>
+<p>src:属性是必须的，它包含了你想嵌入的图片的文件路径</p>
+</li>
+</ul>
+</li>
+<li>
+<p>支持事件:</p>
+<ul>
+<li>onload(加载)/onerror(加载失败)</li>
+</ul>
+</li>
+<li>
+<p>响应式:</p>
+<ul>
+<li>max-width:100%(可以自适应屏幕宽度)</li>
+</ul>
+</li>
+<li>
+<p>他是可替换元素</p>
+</li>
+</ol>
+<h3 id="-table-">三. table 标签的用法:<a href="#-table-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p>相关的标签:</p>
+<ul>
+<li>table</li>
+<li>thead</li>
+<li>tbody</li>
+<li>tfoot</li>
+<li>tr</li>
+<li>td</li>
+<li>th</li>
+</ul>
+</li>
+</ol>
+<p>建立表格示例：</p>
+<pre><code class="language-html5" data-lang="html5">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;th&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;  //table必须与这几个元素搭配使用。
+</code></pre><ol>
+<li>相关的样式：</li>
+</ol>
+<p><strong>table-layout</strong>：CSS 属性定义了用于布局表格单元格，行和列的算法。</p>
+<p>table-layout 取值：</p>
+<ul>
+<li>auto(默认值):大多数浏览器采用自动表格布局算法对表格布局。表格及单元格的宽度取决于其包含的内容。</li>
+</ul>
+<ul>
+<li>fixed:表格和列的宽度通过表格的宽度来设置，某一列的宽度仅由该列首行的单元格决定。在当前列中，该单元格所在行之后的行并不会影响整个列宽。</li>
+</ul>
+<p><strong>border-collapse</strong>:是用来决定表格的边框是分开的还是合并的。在分隔模式下，相邻的单元格都拥有独立的边框。在合并模式下，相邻单元格共享边框。</p>
+<p>border-collapse 取值：</p>
+<ul>
+<li>collapse:合并（collapsed ）模式下，表格中相邻单元格共享边框。在这种模式下，CSS 属性 border-style 的值 inset 表现为槽，值 outset 表现为脊。</li>
+</ul>
+<ul>
+<li>separate:分隔（separated）模式是 HTML 表格的传统模式。相邻单元格都拥有不同的边框。边框之间的距离是通过 CSS 属性 border-spacing 来确定的。</li>
+</ul>
+<p><strong>border-sapcing</strong>:属性指定相邻单元格边框之间的距离,初始值 &ldquo;0&rdquo;.</p>
+<h3 id="-">四. 个人感想:<a href="#-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>HTML5 标签和属性一定要多用</li>
+<li>不懂的标签和属性 MDN 上查找</li>
+<li>标签要理解记忆，死记容易忘记</li>
+<li>前端工程师最大的忌讳是图片在网页上变形</li>
+</ol>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>138 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-12-28 10:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/%E6%B5%85%E6%9E%90-url/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>浅析URL</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>HTML入门笔记1</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

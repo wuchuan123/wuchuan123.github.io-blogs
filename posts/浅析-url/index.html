@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="浅析URL">
+<meta itemprop="description" content="一. URL 有哪几部分？ URL 包括 &ldquo;协议&#43;域名或 IP&#43;端口号&#43;路径&#43;查询字符串&#43;锚点&rdquo; http：//或 https：//
+&ldquo;http&quot;代表超文本传输 ​​ 协议。让浏览器知道它将使用哪种协议来访问 domain 中指定的信息。“ https”协议是“超文本传输 ​​ 协议安全”的缩写，表示通过 HTTP 传输的信息已加密且安全。在 http 或 https 之后是冒号（：）和两个正斜杠（//），用于将协议与 URL 的其余部分分隔开。
+www
+接下来，“ www”代表万维网，用于区分内容。URL 的这一部分不是必需的，可以省去很多次。例如，键入“ http://computerhope.com ”仍然可以将您带到 Computer Hope 网站。地址的这一部分也可以代替重要的子页面，称为 subdomain。
+computerhope.com
+接下来，“ computerhope.com”是网站的域名。域的最后一部分称为域后缀，即 TLD。它用于标识网站的类型或位置。例如，“。com”是商业名称的缩写，“。org”是组织的缩写，“。co.uk”是英国。还有许多其他域后缀可用。要获取域名，您可以通过域名注册商注册名称。
+/jargon/u/ 接下来的“行话”和上述网址的“U”形部分是目录在网页所在的服务器上。在此示例中，网页有两个目录，因此，如果您尝试在服务器上查找文件，则该文件将位于/public_html/jargon/u 目录中。对于大多数服务器，public_html 目录是包含 HTML 文件的默认目录。
+url.htm
+最后，url.htm 是您正在查看的域上的实际网页。尾随的.htm 是网页的文件扩展名，指示该文件是 HTML 文件。Internet 上的其他常见文件扩展名包括.html，.php，.asp，.cgi，.xml，.jpg 和.gif。这些文件扩展名中的每一个都执行不同的功能，就像计算机上所有不同类型的文件一样。
+二. DNS 的作用是什么，nslookup 命令怎么用 DNS
+域名系统（DNS）是 Internet 的电话簿。人们通过域名（例如 nytimes.com 或 espn.com）在线访问信息。Web 浏览器通过 Internet 协议（IP）地址进行交互。DNS 将域名转换为 IP 地址，以便浏览器可以加载 Internet 资源。">
+<meta itemprop="datePublished" content="2019-12-28T13:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-28T13:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="135">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="浅析URL" />
+<meta property="og:description" content="一. URL 有哪几部分？ URL 包括 &ldquo;协议&#43;域名或 IP&#43;端口号&#43;路径&#43;查询字符串&#43;锚点&rdquo; http：//或 https：//
+&ldquo;http&quot;代表超文本传输 ​​ 协议。让浏览器知道它将使用哪种协议来访问 domain 中指定的信息。“ https”协议是“超文本传输 ​​ 协议安全”的缩写，表示通过 HTTP 传输的信息已加密且安全。在 http 或 https 之后是冒号（：）和两个正斜杠（//），用于将协议与 URL 的其余部分分隔开。
+www
+接下来，“ www”代表万维网，用于区分内容。URL 的这一部分不是必需的，可以省去很多次。例如，键入“ http://computerhope.com ”仍然可以将您带到 Computer Hope 网站。地址的这一部分也可以代替重要的子页面，称为 subdomain。
+computerhope.com
+接下来，“ computerhope.com”是网站的域名。域的最后一部分称为域后缀，即 TLD。它用于标识网站的类型或位置。例如，“。com”是商业名称的缩写，“。org”是组织的缩写，“。co.uk”是英国。还有许多其他域后缀可用。要获取域名，您可以通过域名注册商注册名称。
+/jargon/u/ 接下来的“行话”和上述网址的“U”形部分是目录在网页所在的服务器上。在此示例中，网页有两个目录，因此，如果您尝试在服务器上查找文件，则该文件将位于/public_html/jargon/u 目录中。对于大多数服务器，public_html 目录是包含 HTML 文件的默认目录。
+url.htm
+最后，url.htm 是您正在查看的域上的实际网页。尾随的.htm 是网页的文件扩展名，指示该文件是 HTML 文件。Internet 上的其他常见文件扩展名包括.html，.php，.asp，.cgi，.xml，.jpg 和.gif。这些文件扩展名中的每一个都执行不同的功能，就像计算机上所有不同类型的文件一样。
+二. DNS 的作用是什么，nslookup 命令怎么用 DNS
+域名系统（DNS）是 Internet 的电话簿。人们通过域名（例如 nytimes.com 或 espn.com）在线访问信息。Web 浏览器通过 Internet 协议（IP）地址进行交互。DNS 将域名转换为 IP 地址，以便浏览器可以加载 Internet 资源。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/%E6%B5%85%E6%9E%90-url/" />
+<meta property="article:published_time" content="2019-12-28T13:12:19+08:00" />
+<meta property="article:modified_time" content="2019-12-28T13:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析URL"/>
+<meta name="twitter:description" content="一. URL 有哪几部分？ URL 包括 &ldquo;协议&#43;域名或 IP&#43;端口号&#43;路径&#43;查询字符串&#43;锚点&rdquo; http：//或 https：//
+&ldquo;http&quot;代表超文本传输 ​​ 协议。让浏览器知道它将使用哪种协议来访问 domain 中指定的信息。“ https”协议是“超文本传输 ​​ 协议安全”的缩写，表示通过 HTTP 传输的信息已加密且安全。在 http 或 https 之后是冒号（：）和两个正斜杠（//），用于将协议与 URL 的其余部分分隔开。
+www
+接下来，“ www”代表万维网，用于区分内容。URL 的这一部分不是必需的，可以省去很多次。例如，键入“ http://computerhope.com ”仍然可以将您带到 Computer Hope 网站。地址的这一部分也可以代替重要的子页面，称为 subdomain。
+computerhope.com
+接下来，“ computerhope.com”是网站的域名。域的最后一部分称为域后缀，即 TLD。它用于标识网站的类型或位置。例如，“。com”是商业名称的缩写，“。org”是组织的缩写，“。co.uk”是英国。还有许多其他域后缀可用。要获取域名，您可以通过域名注册商注册名称。
+/jargon/u/ 接下来的“行话”和上述网址的“U”形部分是目录在网页所在的服务器上。在此示例中，网页有两个目录，因此，如果您尝试在服务器上查找文件，则该文件将位于/public_html/jargon/u 目录中。对于大多数服务器，public_html 目录是包含 HTML 文件的默认目录。
+url.htm
+最后，url.htm 是您正在查看的域上的实际网页。尾随的.htm 是网页的文件扩展名，指示该文件是 HTML 文件。Internet 上的其他常见文件扩展名包括.html，.php，.asp，.cgi，.xml，.jpg 和.gif。这些文件扩展名中的每一个都执行不同的功能，就像计算机上所有不同类型的文件一样。
+二. DNS 的作用是什么，nslookup 命令怎么用 DNS
+域名系统（DNS）是 Internet 的电话簿。人们通过域名（例如 nytimes.com 或 espn.com）在线访问信息。Web 浏览器通过 Internet 协议（IP）地址进行交互。DNS 将域名转换为 IP 地址，以便浏览器可以加载 Internet 资源。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>浅析URL</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Dec 28, 2019</span></div>
+				<h1>浅析URL</h1>
+			</header>
+			<div class="content">
+				<h4 id="-url-">一. URL 有哪几部分？<a href="#-url-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>URL 包括 &ldquo;协议+域名或 IP+端口号+路径+查询字符串+锚点&rdquo;
+<img src="/images/url.gif" alt="URL"></p>
+<p><strong>http：//或 https：//</strong></p>
+<p>&ldquo;http&quot;代表超文本传输 ​​ 协议。让浏览器知道它将使用哪种协议来访问 domain 中指定的信息。“ https”协议是“超文本传输 ​​ 协议安全”的缩写，表示通过 HTTP 传输的信息已加密且安全。在 http 或 https 之后是冒号（：）和两个正斜杠（//），用于将协议与 URL 的其余部分分隔开。</p>
+<p><strong>www</strong></p>
+<p>接下来，“ www”代表万维网，用于区分内容。URL 的这一部分不是必需的，可以省去很多次。例如，键入“ <a href="http://computerhope.com">http://computerhope.com</a> ”仍然可以将您带到 Computer Hope 网站。地址的这一部分也可以代替重要的子页面，称为 subdomain。</p>
+<p><strong>computerhope.com</strong></p>
+<p>接下来，“ computerhope.com”是网站的域名。域的最后一部分称为域后缀，即 TLD。它用于标识网站的类型或位置。例如，“。com”是商业名称的缩写，“。org”是组织的缩写，“。co.uk”是英国。还有许多其他域后缀可用。要获取域名，您可以通过域名注册商注册名称。</p>
+<p><strong>/jargon/u/</strong>
+接下来的“行话”和上述网址的“U”形部分是目录在网页所在的服务器上。在此示例中，网页有两个目录，因此，如果您尝试在服务器上查找文件，则该文件将位于/public_html/jargon/u 目录中。对于大多数服务器，public_html 目录是包含 HTML 文件的默认目录。</p>
+<p><strong>url.htm</strong></p>
+<p>最后，url.htm 是您正在查看的域上的实际网页。尾随的.htm 是网页的文件扩展名，指示该文件是 HTML 文件。Internet 上的其他常见文件扩展名包括.html，.php，.asp，.cgi，.xml，.jpg 和.gif。这些文件扩展名中的每一个都执行不同的功能，就像计算机上所有不同类型的文件一样。</p>
+<h4 id="-dns-nslookup-">二. DNS 的作用是什么，nslookup 命令怎么用<a href="#-dns-nslookup-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>DNS</strong></p>
+<p>域名系统（DNS）是 Internet 的电话簿。人们通过域名（例如 nytimes.com 或 espn.com）在线访问信息。Web 浏览器通过 Internet 协议（IP）地址进行交互。DNS 将域名转换为 IP 地址，以便浏览器可以加载 Internet 资源。</p>
+<p>连接到 Internet 的每个设备都有一个唯一的 IP 地址，其他计算机可使用该 IP 地址查找该设备。DNS 服务器消除了人们存储 IP 地址（例如 192.168.1.1（在 IPv4 中））或更复杂的较新的字母数字 IP 地址（例如 2400：cb00：2048：1 :: c629：d7a2（在 IPv6 中））的需要。</p>
+<p><strong>nslookup 命令</strong></p>
+<p>Nslookup –它是一个功能强大的网络管理命令行工具，用于查询域名系统（DNS）以获取域名或 IP 地址，映射或其他任何特定的 DNS 记录。</p>
+<p><strong>主要用于:</strong></p>
+<ul>
+<li>查找主机的 IP 地址。</li>
+<li>查找 IP 地址的域名。</li>
+<li>查找域的邮件服务器。
+<img src="/images/nslookup%E5%91%BD%E4%BB%A4.png" alt="URL"></li>
+</ul>
+<h4 id="-ip-ping-">三. IP 的作用是什么，ping 命令怎么用<a href="#-ip-ping-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>IP (Internet Protocol)</strong> 地址是网络硬件的地址。它有助于将计算机连接到网络上以及全球的其他设备。IP 地址由数字或字符组成。
+<strong>Ping 命令</strong>
+<img src="/images/ping.png" alt="URL"></p>
+<p><strong>ping</strong>命令通常用作验证计算机通过网络与另一台计算机或网络设备通信的简单方法。</p>
+<h4 id="-">四. 域名是什么，分别哪几类域名<a href="#-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ol>
+<li>域名可以说是一个 IP 地址的代称，目的是为了便于记忆后者。(qq.com,baidu.com 就是域名)</li>
+<li>域名主要有三类：
+<ul>
+<li>一级域名</li>
+<li>二级域名</li>
+<li>三级域名</li>
+</ul>
+</li>
+</ol>
+<p>例如：</p>
+<p><a href="http://www.xiedaimala.com">www.xiedaimala.com</a> 是二级域名(俗称一级域名)</p>
+<p>xiedaimala.com 是三级域名(俗称二级域名)</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>135 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-12-28 13:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/css-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>CSS 知识总结</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>HTML5常用标签</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

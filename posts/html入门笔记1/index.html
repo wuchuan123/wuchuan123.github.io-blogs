@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="HTML入门笔记1">
+<meta itemprop="description" content="一. HTML 是英国的李爵士发明的，他在 2017 年获得图灵奖； 二. HTML 起手式是 Emmet&#43;! 三. 常用的表章节的标签有：  表示标题 h1 ~ h6 章节 section 文章 article 段落 p 头部 header 脚步 footer 主要内容 main 旁支内容 aside 划分 div  四. HTML 全局属性有：  class 它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或 DOM 方(document.getElementsByClassName)来选择和访问特定的元素。 contenteditable 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。 hidden 是一个布尔属性，表示一个元素尚未或者不再相关。 id 定义了一个全文档唯一的标识符 (ID)。它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。 style 包含文档的样式信息或者文档的部分内容。默认情况下，该标签的样式信息通常是 CSS 的格式。 tabindex 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用 Tab 键，因此得名）。 title 定义文档的标题，显示在浏览器的标题栏或标签页上。它只可以包含文本，若是包含有标签，则包含的任何标签都不会被解释。  五. 常用内容标签有:   ol &#43; li 表示有序列表">
+<meta itemprop="datePublished" content="2019-12-28T09:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-28T09:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="138">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="HTML入门笔记1" />
+<meta property="og:description" content="一. HTML 是英国的李爵士发明的，他在 2017 年获得图灵奖； 二. HTML 起手式是 Emmet&#43;! 三. 常用的表章节的标签有：  表示标题 h1 ~ h6 章节 section 文章 article 段落 p 头部 header 脚步 footer 主要内容 main 旁支内容 aside 划分 div  四. HTML 全局属性有：  class 它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或 DOM 方(document.getElementsByClassName)来选择和访问特定的元素。 contenteditable 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。 hidden 是一个布尔属性，表示一个元素尚未或者不再相关。 id 定义了一个全文档唯一的标识符 (ID)。它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。 style 包含文档的样式信息或者文档的部分内容。默认情况下，该标签的样式信息通常是 CSS 的格式。 tabindex 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用 Tab 键，因此得名）。 title 定义文档的标题，显示在浏览器的标题栏或标签页上。它只可以包含文本，若是包含有标签，则包含的任何标签都不会被解释。  五. 常用内容标签有:   ol &#43; li 表示有序列表" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" />
+<meta property="article:published_time" content="2019-12-28T09:12:19+08:00" />
+<meta property="article:modified_time" content="2019-12-28T09:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTML入门笔记1"/>
+<meta name="twitter:description" content="一. HTML 是英国的李爵士发明的，他在 2017 年获得图灵奖； 二. HTML 起手式是 Emmet&#43;! 三. 常用的表章节的标签有：  表示标题 h1 ~ h6 章节 section 文章 article 段落 p 头部 header 脚步 footer 主要内容 main 旁支内容 aside 划分 div  四. HTML 全局属性有：  class 它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或 DOM 方(document.getElementsByClassName)来选择和访问特定的元素。 contenteditable 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。 hidden 是一个布尔属性，表示一个元素尚未或者不再相关。 id 定义了一个全文档唯一的标识符 (ID)。它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。 style 包含文档的样式信息或者文档的部分内容。默认情况下，该标签的样式信息通常是 CSS 的格式。 tabindex 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用 Tab 键，因此得名）。 title 定义文档的标题，显示在浏览器的标题栏或标签页上。它只可以包含文本，若是包含有标签，则包含的任何标签都不会被解释。  五. 常用内容标签有:   ol &#43; li 表示有序列表"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>HTML入门笔记1</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Dec 28, 2019</span></div>
+				<h1>HTML入门笔记1</h1>
+			</header>
+			<div class="content">
+				<h3 id="-html--2017-">一. HTML 是英国的李爵士发明的，他在 2017 年获得图灵奖；<a href="#-html--2017-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="-html--emmet">二. HTML 起手式是 Emmet+!<a href="#-html--emmet" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="-">三. 常用的表章节的标签有：<a href="#-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>表示标题 h1 ~ h6</li>
+<li>章节 section</li>
+<li>文章 article</li>
+<li>段落 p</li>
+<li>头部 header</li>
+<li>脚步 footer</li>
+<li>主要内容 main</li>
+<li>旁支内容 aside</li>
+<li>划分 div</li>
+</ol>
+<h3 id="-html-">四. HTML 全局属性有：<a href="#-html-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li><strong>class</strong> 它允许 CSS 和 Javascript 通过类选择器 (class selectors) 或 DOM 方(document.getElementsByClassName)来选择和访问特定的元素。</li>
+<li><strong>contenteditable</strong> 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。</li>
+<li><strong>hidden</strong> 是一个布尔属性，表示一个元素尚未或者不再相关。</li>
+<li><strong>id</strong> 定义了一个全文档唯一的标识符 (ID)。它用于在链接（使用片段）、脚本和样式（通过 CSS）中辨识元素。</li>
+<li><strong>style</strong> 包含文档的样式信息或者文档的部分内容。默认情况下，该标签的样式信息通常是 CSS 的格式。</li>
+<li><strong>tabindex</strong> 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用 Tab 键，因此得名）。</li>
+<li><strong>title</strong> 定义文档的标题，显示在浏览器的标题栏或标签页上。它只可以包含文本，若是包含有标签，则包含的任何标签都不会被解释。</li>
+</ol>
+<h3 id="--1">五. 常用内容标签有:<a href="#--1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>
+<p><strong>ol + li</strong> 表示有序列表</p>
+</li>
+<li>
+<p><strong>ul + li</strong> 表示无序列表</p>
+<p>补充：ol 和 ul 必须和 li 搭配使用</p>
+</li>
+<li>
+<p>dl + dt + dd 定义列表</p>
+</li>
+</ol>
+<p>补充：dt 和 dd 必须和 ll 搭配使用,dl 主要用于定义清单列表</p>
+<ol start="4">
+<li><strong>pre</strong> 元素表示预定义格式文本。在该元素中的文本通常按照原文件中的编排，以等宽字体的形式展现出来，文本中的空白符（比如空格和换行符）都会显示出来。(紧跟在 <!-- raw HTML omitted --> 开始标签后的换行符也会被省略)</li>
+<li><strong>hr</strong> 表示段落级元素之间的主题转换（例如，一个故事中的场景的改变，或一个章节的主题的改变）。在 HTML 的早期版本中，它是一个水平线。现在它仍能在可视化浏览器中表现为水平线，但目前被定义为语义上的，而不是表现层面上。</li>
+<li><strong>br</strong> 在文本中生成一个换行（回车）符号。此元素在写诗和地址时很有用，这些地方的换行都非常重要。</li>
+<li><strong>a</strong> 可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。</li>
+<li><strong>em</strong> 标记出需要用户着重阅读的内容， <!-- raw HTML omitted --> 元素是可以嵌套的，嵌套层次越深，则其包含的内容被认定为越需要着重阅读。</li>
+<li><strong>strong</strong> 表示文本十分重要，一般用粗体显示。</li>
+<li><strong>code</strong> 呈现一段计算机代码. 默认情况下, 它以浏览器的默认等宽字体显示</li>
+<li><strong>q</strong> 表示一个封闭的并且是短的行内引用的文本. 这个标签是用来引用短的文本，所以请不要引入换行符; 对于长的文本的引用请使用 blockquote 替代.</li>
+<li><strong>blkockquote</strong> 代表其中的文字是引用内容。通常在渲染时，这部分的内容会有一定的缩进（注 中说明了如何更改）。若引文来源于网络，则可以将原内容的出处 URL 地址设置到 cite 特性上，若要以文本的形式告知读者引文的出处时，可以通过 <!-- raw HTML omitted --> 元素。</li>
+</ol>
+<h3 id="-html5-----html5--mdn">六. HTML5 不懂的标签 请搜索 标签名 + HTML5 + MDN<a href="#-html5-----html5--mdn" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>138 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-12-28 09:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>HTML5常用标签</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>如何使用hugo写博客</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
