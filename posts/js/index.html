@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="new命令的原理 使用new命令时，它后面的函数依次执行下面的步骤。
+创建一个空对象，作为将要返回的对象实例。 将这个空对象的原型，指向构造函数的prototype属性。 将这个空对象赋值给函数内部的this关键字。 开始执行构造函数内部的代码。
+重要1:JS公式 第一个重要知识：JS公式 对象.__proto__===其构造函数.prototype JS唯一公式，如果不会就套公式
+重要2:根公理 Object.prototype是所有对象的(直接或间接)原型 加了一个直接或间接，所谓公理就是规定好的
+重要3：函数公理 所有函数都是由Function构造的 任何函数.proto === Function.prototype 任意函数有Object/Array/Function
+除了静态方法，还有不少方法定义在Object.prototype对象。它们称为实例方法，所有Object的实例对象都继承了这些方法。
+Object实例对象的方法，主要有以下六个。
+Object.prototype.valueOf()：返回当前对象对应的值。 Object.prototype.toString()：返回当前对象对应的字符串形式。 Object.prototype.toLocaleString()：返回当前对象对应的本地字符串形式。 Object.prototype.hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。 Object.prototype.isPrototypeOf()：判断当前对象是否为另一个对象的原型。 Object.prototype.propertyIsEnumerable()：判断某个属性是否可枚举。
+JSON 格式（JavaScript Object Notation 的缩写）
+this就是属性或方法“当前”所在的对象 内部的this就会指向f运行时所在的对象（本例是顶层对象）。 现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，this就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。
+this主要有以下几个使用场合。
+（1）全局环境
+全局环境使用this，它指的就是顶层对象window。
+（2）构造函数
+构造函数中的this，指的是实例对象。
+（3）对象的方法
+如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。">
+
+<meta itemprop="wordCount" content="42">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta property="og:description" content="new命令的原理 使用new命令时，它后面的函数依次执行下面的步骤。
+创建一个空对象，作为将要返回的对象实例。 将这个空对象的原型，指向构造函数的prototype属性。 将这个空对象赋值给函数内部的this关键字。 开始执行构造函数内部的代码。
+重要1:JS公式 第一个重要知识：JS公式 对象.__proto__===其构造函数.prototype JS唯一公式，如果不会就套公式
+重要2:根公理 Object.prototype是所有对象的(直接或间接)原型 加了一个直接或间接，所谓公理就是规定好的
+重要3：函数公理 所有函数都是由Function构造的 任何函数.proto === Function.prototype 任意函数有Object/Array/Function
+除了静态方法，还有不少方法定义在Object.prototype对象。它们称为实例方法，所有Object的实例对象都继承了这些方法。
+Object实例对象的方法，主要有以下六个。
+Object.prototype.valueOf()：返回当前对象对应的值。 Object.prototype.toString()：返回当前对象对应的字符串形式。 Object.prototype.toLocaleString()：返回当前对象对应的本地字符串形式。 Object.prototype.hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。 Object.prototype.isPrototypeOf()：判断当前对象是否为另一个对象的原型。 Object.prototype.propertyIsEnumerable()：判断某个属性是否可枚举。
+JSON 格式（JavaScript Object Notation 的缩写）
+this就是属性或方法“当前”所在的对象 内部的this就会指向f运行时所在的对象（本例是顶层对象）。 现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，this就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。
+this主要有以下几个使用场合。
+（1）全局环境
+全局环境使用this，它指的就是顶层对象window。
+（2）构造函数
+构造函数中的this，指的是实例对象。
+（3）对象的方法
+如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/js/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="new命令的原理 使用new命令时，它后面的函数依次执行下面的步骤。
+创建一个空对象，作为将要返回的对象实例。 将这个空对象的原型，指向构造函数的prototype属性。 将这个空对象赋值给函数内部的this关键字。 开始执行构造函数内部的代码。
+重要1:JS公式 第一个重要知识：JS公式 对象.__proto__===其构造函数.prototype JS唯一公式，如果不会就套公式
+重要2:根公理 Object.prototype是所有对象的(直接或间接)原型 加了一个直接或间接，所谓公理就是规定好的
+重要3：函数公理 所有函数都是由Function构造的 任何函数.proto === Function.prototype 任意函数有Object/Array/Function
+除了静态方法，还有不少方法定义在Object.prototype对象。它们称为实例方法，所有Object的实例对象都继承了这些方法。
+Object实例对象的方法，主要有以下六个。
+Object.prototype.valueOf()：返回当前对象对应的值。 Object.prototype.toString()：返回当前对象对应的字符串形式。 Object.prototype.toLocaleString()：返回当前对象对应的本地字符串形式。 Object.prototype.hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。 Object.prototype.isPrototypeOf()：判断当前对象是否为另一个对象的原型。 Object.prototype.propertyIsEnumerable()：判断某个属性是否可枚举。
+JSON 格式（JavaScript Object Notation 的缩写）
+this就是属性或方法“当前”所在的对象 内部的this就会指向f运行时所在的对象（本例是顶层对象）。 现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，this就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。
+this主要有以下几个使用场合。
+（1）全局环境
+全局环境使用this，它指的就是顶层对象window。
+（2）构造函数
+构造函数中的this，指的是实例对象。
+（3）对象的方法
+如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title></title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 1, 0001</span></div>
+				<h1></h1>
+			</header>
+			<div class="content">
+				<p>new命令的原理
+使用new命令时，它后面的函数依次执行下面的步骤。</p>
+<p>创建一个空对象，作为将要返回的对象实例。
+将这个空对象的原型，指向构造函数的prototype属性。
+将这个空对象赋值给函数内部的this关键字。
+开始执行构造函数内部的代码。</p>
+<p>重要1:JS公式
+第一个重要知识：JS公式
+对象.__proto__===其构造函数.prototype
+JS唯一公式，如果不会就套公式</p>
+<p>重要2:根公理
+Object.prototype是所有对象的(直接或间接)原型
+加了一个直接或间接，所谓公理就是规定好的</p>
+<p>重要3：函数公理
+所有函数都是由Function构造的
+任何函数.<strong>proto</strong> === Function.prototype
+任意函数有Object/Array/Function</p>
+<p>除了静态方法，还有不少方法定义在Object.prototype对象。它们称为实例方法，所有Object的实例对象都继承了这些方法。</p>
+<p>Object实例对象的方法，主要有以下六个。</p>
+<p>Object.prototype.valueOf()：返回当前对象对应的值。
+Object.prototype.toString()：返回当前对象对应的字符串形式。
+Object.prototype.toLocaleString()：返回当前对象对应的本地字符串形式。
+Object.prototype.hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。
+Object.prototype.isPrototypeOf()：判断当前对象是否为另一个对象的原型。
+Object.prototype.propertyIsEnumerable()：判断某个属性是否可枚举。</p>
+<p>JSON 格式（JavaScript Object Notation 的缩写）</p>
+<p>this就是属性或方法“当前”所在的对象
+内部的this就会指向f运行时所在的对象（本例是顶层对象）。
+现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，this就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。</p>
+<p>this主要有以下几个使用场合。</p>
+<p>（1）全局环境</p>
+<p>全局环境使用this，它指的就是顶层对象window。</p>
+<p>（2）构造函数</p>
+<p>构造函数中的this，指的是实例对象。</p>
+<p>（3）对象的方法</p>
+<p>如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>42 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>0001-01-01 08:00 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>如何使用hugo写博客</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/%E6%8E%92%E5%BA%8F/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span></span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
