@@ -6,8 +6,125 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zn-cn</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 12 Jan 2020 19:43:19 +0800</lastBuildDate>
+		<lastBuildDate>Mon, 13 Jan 2020 10:12:19 +0800</lastBuildDate>
 		<atom:link href="https://wuchuan.monster/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>flex布局</title>
+			<link>https://wuchuan.monster/posts/flexgrid%E5%B8%83%E5%B1%80/</link>
+			<pubDate>Mon, 13 Jan 2020 10:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/flexgrid%E5%B8%83%E5%B1%80/</guid>
+			<description>flex container属性:
+.container{display:flex;}把容器定义为flex； flex-direction:
+.container{flex-direction:row|row-reverse |column|column-reverse;} row（默认值）：从左到右ltr；从右到左rtl row-reverse：从右到左ltr; 从左到右rtl column：与row上至下相同 column-reverse：与row-reverse下至上相同  flex-wrap
+.container{flex-wrap:nowrap | wrap | wrap-reverse;} nowrap （默认）：所有弹性项目都在一行上 wrap：弹性项目将从上到下缠绕在多行上。 wrap-reverse：弹性项目将从下到上缠绕在多行上。 flex-flow: 这是flex-direction和flex-wrap属性的简写，它们一起定义了伸缩容器的主轴和交叉轴。默认值为row nowrap。  flex-flow:&amp;lt;&amp;#39;flex-direction&amp;#39;&amp;gt;||&amp;lt;&amp;#39;flex-wrap&amp;#39;&amp;gt;主轴对齐方式： flex-content
+.container {justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;} flex-start （默认）：物品被包装在弹性方向的开始处。 flex-end：项目在伸缩方向的末端打包。 start：物品被包装到方向的起点writing-mode。 end：物品朝着方向的末端包装writing-mode。 left：项目朝着容器的左边缘包装，除非对而言没有意义flex-direction，则其行为类似于start。 right：物品会朝着容器的右边缘包装，除非对而言没有意义flex-direction，则其行为类似于start。 center：项目沿线居中 space-between：项目在行中均匀分布；第一项位于开始行，最后一项位于结束行 space-around：项目在行中均匀分布，并且周围有相等的空间。请注意，从视觉上看，空间是不相等的，因为所有项目的两侧都具有相等的空间。第一项相对于容器边缘有一个单位的空间，但是下一项之间有两个单位的空间，因为下一项具有自己的适用间距。 space-evenly：分配项目，以使任意两个项目之间的间距（以及到边缘的间距）相等。 次轴对齐方式:  align-items</description>
+			<content type="html"><![CDATA[<p><strong>flex container属性:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span><span class="kc">flex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>把容器定义为flex；
+<strong>flex-direction:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+    <span class="k">flex-direction</span><span class="p">:</span><span class="kc">row</span><span class="o">|</span><span class="kc">row</span><span class="o">-</span><span class="kc">reverse</span> <span class="o">|</span><span class="kc">column</span><span class="o">|</span><span class="kc">column</span><span class="o">-</span><span class="kc">reverse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>row（默认值）：从左到右ltr；从右到左rtl</li>
+<li>row-reverse：从右到左ltr; 从左到右rtl</li>
+<li>column：与row上至下相同</li>
+<li>column-reverse：与row-reverse下至上相同</li>
+</ul>
+<p><strong>flex-wrap</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+    <span class="k">flex-wrap</span><span class="p">:</span><span class="kc">nowrap</span> <span class="o">|</span> <span class="kc">wrap</span> <span class="o">|</span> <span class="kc">wrap</span><span class="o">-</span><span class="kc">reverse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>nowrap （默认）：所有弹性项目都在一行上</li>
+<li>wrap：弹性项目将从上到下缠绕在多行上。</li>
+<li>wrap-reverse：弹性项目将从下到上缠绕在多行上。</li>
+<li>flex-flow:
+这是flex-direction和flex-wrap属性的简写，它们一起定义了伸缩容器的主轴和交叉轴。默认值为row nowrap。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="nt">flex-flow</span><span class="o">:</span><span class="o">&lt;</span><span class="s1">&#39;flex-direction&#39;</span><span class="o">&gt;</span><span class="o">|</span><span class="o">|</span><span class="o">&lt;</span><span class="s1">&#39;flex-wrap&#39;</span><span class="o">&gt;</span>
+</code></pre></div><p>主轴对齐方式：
+<strong>flex-content</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">justify-content</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span> <span class="o">|</span> <span class="kc">center</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">around</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">evenly</span> <span class="o">|</span> <span class="kc">start</span> <span class="o">|</span> <span class="kc">end</span> <span class="o">|</span> <span class="kc">left</span> <span class="o">|</span> <span class="kc">right</span> <span class="o">...</span> <span class="o">+</span> <span class="n">safe</span> <span class="o">|</span> <span class="n">unsafe</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>flex-start （默认）：物品被包装在弹性方向的开始处。</li>
+<li>flex-end：项目在伸缩方向的末端打包。</li>
+<li>start：物品被包装到方向的起点writing-mode。</li>
+<li>end：物品朝着方向的末端包装writing-mode。</li>
+<li>left：项目朝着容器的左边缘包装，除非对而言没有意义flex-direction，则其行为类似于start。</li>
+<li>right：物品会朝着容器的右边缘包装，除非对而言没有意义flex-direction，则其行为类似于start。</li>
+<li>center：项目沿线居中</li>
+<li>space-between：项目在行中均匀分布；第一项位于开始行，最后一项位于结束行</li>
+<li>space-around：项目在行中均匀分布，并且周围有相等的空间。请注意，从视觉上看，空间是不相等的，因为所有项目的两侧都具有相等的空间。第一项相对于容器边缘有一个单位的空间，但是下一项之间有两个单位的空间，因为下一项具有自己的适用间距。</li>
+<li>space-evenly：分配项目，以使任意两个项目之间的间距（以及到边缘的间距）相等。
+次轴对齐方式:</li>
+</ul>
+<p><strong>align-items</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">stretch</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span> <span class="o">|</span> <span class="kc">center</span> <span class="o">|</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">first</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">last</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">start</span> <span class="o">|</span> <span class="kc">end</span> <span class="o">|</span> <span class="n">self-start</span> <span class="o">|</span> <span class="n">self-end</span> <span class="o">+</span> <span class="o">...</span> <span class="n">safe</span> <span class="o">|</span> <span class="n">unsafe</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>stretch （默认）：拉伸以填充容器（仍然遵守最小宽度/最大宽度）</li>
+<li>flex-start/ start/ self-start：项目放置在十字轴的起点。它们之间的区别是微妙的，并且是关于flex-direction遵守规则或writing-mode规则的。</li>
+<li>flex-end/ end/ self-end：项目放置在十字轴的末端。差异再次是微妙的，涉及尊重flex-direction规则与writing-mode规则。</li>
+<li>center：项目在横轴上居中</li>
+<li>baseline：项目对齐，例如基线对齐</li>
+<li>在safe和unsafe修改关键字，可以结合使用这些关键字的所有的休息（但是注意浏览器支持），及处理帮助您防止对位元件，使得内容变得不可访问。</li>
+</ul>
+<p>多行对齐(用的较少):</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">align-content</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span> <span class="o">|</span> <span class="kc">center</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">around</span> <span class="o">|</span> <span class="kc">space</span><span class="o">-</span><span class="n">evenly</span> <span class="o">|</span> <span class="kc">stretch</span> <span class="o">|</span> <span class="kc">start</span> <span class="o">|</span> <span class="kc">end</span> <span class="o">|</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">first</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">last</span> <span class="kc">baseline</span> <span class="o">+</span> <span class="o">...</span> <span class="n">safe</span> <span class="o">|</span> <span class="n">unsafe</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>flex-start/ start：包装到容器开头的项目。（受更多支持）flex-start兑现，flex-direction而start兑现writing-mode方向。</li>
+<li>flex-end/ end：包装在容器末端的物品。（更多的支持）flex-end兑现，flex-direction而末端则兑现writing-mode方向。</li>
+<li>center：位于容器中心的项目</li>
+<li>space-between：物品平均分配；第一行在容器的开头，而最后一行在容器的结尾</li>
+<li>space-around：项目均匀分布在每行周围</li>
+<li>space-evenly：项目均匀分布，周围有相等的空间</li>
+<li>stretch （默认）：线拉伸以占据剩余空间</li>
+</ul>
+<p>flex item属性:</p>
+<p>默认情况下，弹性项目按源顺序排列。但是，该order属性控制它们在flex容器中出现的顺序。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">order</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">integer</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* default is 0 */</span>
+<span class="p">}</span>
+</code></pre></div><p>这定义了弹性项目在必要时增长的能力。它接受作为比例的无单位值。它决定了项目应在伸缩容器内部占用多少可用空间。</p>
+<p>弹性成长,负数无效。</p>
+<p>如果所有项目都flex-grow设置为1，则容器中的剩余空间将平均分配给所有子项。</p>
+<p>如果其中一个孩子的值为2，则剩余空间将占其他孩子的两倍（或者至少会尝试）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* default 0 */</span>
+<span class="p">}</span>
+</code></pre></div><p>弯曲收缩:</p>
+<p>这定义了弹性项目在必要时收缩的能力。负数无效。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* default 1 */</span>
+<span class="p">}</span>
+</code></pre></div><p>flex-basis:
+这定义了剩余空间分配之前元素的默认大小。 它可以是长度（例如20％，5rem等）或关键字。 auto关键字的意思是“看看我的width或height属性”（由main-size关键字临时完成，直到弃用）。 content关键字的意思是“根据项目的内容调整大小”-此关键字尚未得到很好的支持，因此很难测试，也很难知道其弟兄的max-content，min-content和fit-content。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex-basis</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">length</span><span class="o">&gt;</span> <span class="o">|</span> <span class="kc">auto</span><span class="p">;</span> <span class="c">/* default auto */</span>
+<span class="p">}</span>
+</code></pre></div><p>flex:</p>
+<p>这是简写flex-grow, flex-shrink和flex-basis合并。第二和第三个参数（flex-shrink和flex-basis）是可选的。默认值为0 1 auto。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex</span><span class="p">:</span> <span class="kc">none</span> <span class="o">|</span> <span class="p">[</span> <span class="o">&lt;</span><span class="s1">&#39;flex-grow&#39;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="s1">&#39;flex-shrink&#39;</span><span class="o">&gt;?</span> <span class="o">||</span> <span class="o">&lt;</span><span class="s1">&#39;flex-basis&#39;</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>align-items:</strong>
+这允许align-items为单个弹性项目覆盖默认对齐方式（或由指定的对齐方式）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-CSS" data-lang="CSS"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">align-self</span><span class="p">:</span> <span class="kc">auto</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span> <span class="o">|</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span> <span class="o">|</span> <span class="kc">center</span> <span class="o">|</span> <span class="kc">baseline</span> <span class="o">|</span> <span class="kc">stretch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">参考链接</a></p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>jQuery学习小结</title>
