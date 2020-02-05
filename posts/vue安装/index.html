@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="Vue安装">
+<meta itemprop="description" content=" 安装@vue/cli  npm install -g @vue/cli# ORyarn global add @vue/cli //推荐 创建目录：vue create 路径（路径可用.点）
+  选择使用配置(如下图)   进入目录，运行yarn serve开启webpack-dev-server（npm run serve）
+  两个版本对应的文件名 完整版对应文件名：从CDN引入vue.js;vue.min.js;
+非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;
+template 和 render 怎么用 Vue template的使用方法：直接写在页面上或者JS上
+&lt;template&gt;&lt;div id=&quot;app&quot;&gt; {{n}}&lt;button @click=&quot;add&quot;&gt;&#43;1&lt;/button&gt; &lt;/div&gt; &lt;/template&gt;Vue render的使用方法
+render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例
+render(h){ return h(&#39;div&#39;, [this.n,h(&#39;{on:{click:this.add}’,&#39;&#43;1&#39;])}如何用 codesandbox.io 写 Vue 代码  codesandbox.io 选择Vue,create sanbox 创建沙盒 exprot zip 导出文件 Browser 选项会提供一个链接预览  ">
+<meta itemprop="datePublished" content="2020-02-05T14:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-05T14:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="59">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Vue安装" />
+<meta property="og:description" content=" 安装@vue/cli  npm install -g @vue/cli# ORyarn global add @vue/cli //推荐 创建目录：vue create 路径（路径可用.点）
+  选择使用配置(如下图)   进入目录，运行yarn serve开启webpack-dev-server（npm run serve）
+  两个版本对应的文件名 完整版对应文件名：从CDN引入vue.js;vue.min.js;
+非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;
+template 和 render 怎么用 Vue template的使用方法：直接写在页面上或者JS上
+&lt;template&gt;&lt;div id=&quot;app&quot;&gt; {{n}}&lt;button @click=&quot;add&quot;&gt;&#43;1&lt;/button&gt; &lt;/div&gt; &lt;/template&gt;Vue render的使用方法
+render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例
+render(h){ return h(&#39;div&#39;, [this.n,h(&#39;{on:{click:this.add}’,&#39;&#43;1&#39;])}如何用 codesandbox.io 写 Vue 代码  codesandbox.io 选择Vue,create sanbox 创建沙盒 exprot zip 导出文件 Browser 选项会提供一个链接预览  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/" />
+<meta property="article:published_time" content="2020-02-05T14:12:19+08:00" />
+<meta property="article:modified_time" content="2020-02-05T14:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue安装"/>
+<meta name="twitter:description" content=" 安装@vue/cli  npm install -g @vue/cli# ORyarn global add @vue/cli //推荐 创建目录：vue create 路径（路径可用.点）
+  选择使用配置(如下图)   进入目录，运行yarn serve开启webpack-dev-server（npm run serve）
+  两个版本对应的文件名 完整版对应文件名：从CDN引入vue.js;vue.min.js;
+非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;
+template 和 render 怎么用 Vue template的使用方法：直接写在页面上或者JS上
+&lt;template&gt;&lt;div id=&quot;app&quot;&gt; {{n}}&lt;button @click=&quot;add&quot;&gt;&#43;1&lt;/button&gt; &lt;/div&gt; &lt;/template&gt;Vue render的使用方法
+render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例
+render(h){ return h(&#39;div&#39;, [this.n,h(&#39;{on:{click:this.add}’,&#39;&#43;1&#39;])}如何用 codesandbox.io 写 Vue 代码  codesandbox.io 选择Vue,create sanbox 创建沙盒 exprot zip 导出文件 Browser 选项会提供一个链接预览  "/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Vue安装</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 5, 2020</span></div>
+				<h1>Vue安装</h1>
+			</header>
+			<div class="content">
+				<ol>
+<li>安装@vue/cli</li>
+</ol>
+<pre><code>npm install -g @vue/cli
+# OR
+yarn global add @vue/cli   //推荐
+</code></pre><ol start="2">
+<li>
+<p>创建目录：vue create 路径（路径可用.点）</p>
+</li>
+<li>
+<p>选择使用配置(如下图)
+<img src="/images/Vue%E9%85%8D%E7%BD%AE1.jpg" alt="image">
+<img src="/images/Vue%E9%85%8D%E7%BD%AE2.jpg" alt="image"></p>
+</li>
+<li>
+<p>进入目录，运行yarn serve开启webpack-dev-server（npm run serve）</p>
+</li>
+</ol>
+<h3 id="heading">两个版本对应的文件名<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>完整版对应文件名：从CDN引入vue.js;vue.min.js;</p>
+<p>非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;</p>
+<h3 id="template--render-">template 和 render 怎么用<a href="#template--render-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>Vue template的使用方法：直接写在页面上或者JS上</p>
+<pre><code>&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;      
+        {{n}}
+        &lt;button @click=&quot;add&quot;&gt;+1&lt;/button&gt;   
+   &lt;/div&gt; 
+&lt;/template&gt;
+</code></pre><p>Vue render的使用方法</p>
+<p>render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例</p>
+<pre><code>render(h){ 
+     return h('div', [this.n,h('{on:{click:this.add}’,'+1'])
+ }
+</code></pre><h3 id="-codesandboxio--vue-">如何用 codesandbox.io 写 Vue 代码<a href="#-codesandboxio--vue-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>codesandbox.io</li>
+<li>选择Vue,create sanbox 创建沙盒</li>
+<li>exprot zip 导出文件</li>
+<li>Browser 选项会提供一个链接预览</li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>59 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-02-05 14:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://wuchuan.monster/posts/mvc%E5%B0%8F%E7%BB%93/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>浅析MVC</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

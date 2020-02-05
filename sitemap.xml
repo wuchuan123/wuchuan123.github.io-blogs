@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wuchuan.monster/posts/flexgrid%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2020-01-13T10:12:19+08:00</lastmod>
+    <loc>https://wuchuan.monster/posts/</loc>
+    <lastmod>2020-02-05T14:12:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wuchuan.monster/posts/</loc>
-    <lastmod>2020-01-13T10:12:19+08:00</lastmod>
+    <loc>https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2020-02-05T14:12:19+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://wuchuan.monster/</loc>
+    <lastmod>2020-02-05T14:12:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wuchuan.monster/posts/mvc%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2020-02-05T10:12:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wuchuan.monster/posts/vscode%E4%B8%8Evim/</loc>
+    <lastmod>2020-01-14T13:12:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wuchuan.monster/posts/flexgrid%E5%B8%83%E5%B1%80/</loc>
     <lastmod>2020-01-13T10:12:19+08:00</lastmod>
   </url>
   
@@ -79,6 +94,11 @@
   
   <url>
     <loc>https://wuchuan.monster/posts/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E5%86%99%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2019-12-26T13:12:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wuchuan.monster/posts/%E5%B0%8F%E7%BB%93/</loc>
     <lastmod>2019-12-26T13:12:19+08:00</lastmod>
   </url>
   

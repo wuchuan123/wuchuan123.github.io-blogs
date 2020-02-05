@@ -6,8 +6,217 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zn-cn</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 13 Jan 2020 10:12:19 +0800</lastBuildDate>
+		<lastBuildDate>Wed, 05 Feb 2020 14:12:19 +0800</lastBuildDate>
 		<atom:link href="https://wuchuan.monster/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Vue安装</title>
+			<link>https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/</link>
+			<pubDate>Wed, 05 Feb 2020 14:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/</guid>
+			<description> 安装@vue/cli  npm install -g @vue/cli# ORyarn global add @vue/cli //推荐 创建目录：vue create 路径（路径可用.点）
+  选择使用配置(如下图)   进入目录，运行yarn serve开启webpack-dev-server（npm run serve）
+  两个版本对应的文件名 完整版对应文件名：从CDN引入vue.js;vue.min.js;
+非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;
+template 和 render 怎么用 Vue template的使用方法：直接写在页面上或者JS上
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; {{n}}&amp;lt;button @click=&amp;quot;add&amp;quot;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt;Vue render的使用方法
+render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例
+render(h){ return h(&#39;div&#39;, [this.n,h(&#39;{on:{click:this.add}’,&#39;+1&#39;])}如何用 codesandbox.io 写 Vue 代码  codesandbox.io 选择Vue,create sanbox 创建沙盒 exprot zip 导出文件 Browser 选项会提供一个链接预览  </description>
+			<content type="html"><![CDATA[<ol>
+<li>安装@vue/cli</li>
+</ol>
+<pre><code>npm install -g @vue/cli
+# OR
+yarn global add @vue/cli   //推荐
+</code></pre><ol start="2">
+<li>
+<p>创建目录：vue create 路径（路径可用.点）</p>
+</li>
+<li>
+<p>选择使用配置(如下图)
+<img src="/images/Vue%E9%85%8D%E7%BD%AE1.jpg" alt="image">
+<img src="/images/Vue%E9%85%8D%E7%BD%AE2.jpg" alt="image"></p>
+</li>
+<li>
+<p>进入目录，运行yarn serve开启webpack-dev-server（npm run serve）</p>
+</li>
+</ol>
+<h3 id="heading">两个版本对应的文件名</h3>
+<p>完整版对应文件名：从CDN引入vue.js;vue.min.js;</p>
+<p>非完整版对应文件名:vue.runtime.js;vue.runtime.min.js;</p>
+<h3 id="template--render-">template 和 render 怎么用</h3>
+<p>Vue template的使用方法：直接写在页面上或者JS上</p>
+<pre><code>&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;      
+        {{n}}
+        &lt;button @click=&quot;add&quot;&gt;+1&lt;/button&gt;   
+   &lt;/div&gt; 
+&lt;/template&gt;
+</code></pre><p>Vue render的使用方法</p>
+<p>render函数接收一个参数h，这个参数是vue传的；用这个参数去创建实例</p>
+<pre><code>render(h){ 
+     return h('div', [this.n,h('{on:{click:this.add}’,'+1'])
+ }
+</code></pre><h3 id="-codesandboxio--vue-">如何用 codesandbox.io 写 Vue 代码</h3>
+<ul>
+<li>codesandbox.io</li>
+<li>选择Vue,create sanbox 创建沙盒</li>
+<li>exprot zip 导出文件</li>
+<li>Browser 选项会提供一个链接预览</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>浅析MVC</title>
+			<link>https://wuchuan.monster/posts/mvc%E5%B0%8F%E7%BB%93/</link>
+			<pubDate>Wed, 05 Feb 2020 10:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/mvc%E5%B0%8F%E7%BB%93/</guid>
+			<description>MVC 三个对象分别做什么，给出伪代码示例 MVC包括三个对象，分别是M、V、C M-Model(数据模型) 负责操作所有数据 V-View(视图)负责所有UI界面 C-Controller(控制器)负责其他
+MVC伪代码 const m = {//数据层，关于数据的操作放在这里 data:{n:parseInt(localStorage.getItem(&amp;#39;number&amp;#39;)||100)},//数据初始化 update:function (data) {//更新数据的方法 },delete:function (data) {//删除数据的方法 },get:function (data) {//获得数据的方法 }}const v = {//视图层，关于视图的操作放在这里 el:&amp;#39;挂载点&amp;#39;,html:&amp;#39;需要插入元素内的HTML内容&amp;#39;,render(&amp;#39;渲染html&amp;#39;)}const c = {//控制层，关于事件监听的放到这里 //找到重要的元素绑定事件 //如果触发事件调用更改数据方法及渲染方法 const a =$(&amp;#39;找到A&amp;#39;)const b = $(&amp;#39;找到B&amp;#39;)b.on(&amp;#39;click&amp;#39;,function(){//调用数据层方法更改数据 //调用视图层方法渲染页面 })}EventBus 有哪些 API，是做什么用的，给出伪代码示例 eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化</description>
+			<content type="html"><![CDATA[<h3 id="mvc-">MVC 三个对象分别做什么，给出伪代码示例</h3>
+<p>MVC包括三个对象，分别是M、V、C
+M-Model(数据模型) 负责操作所有数据
+V-View(视图)负责所有UI界面
+C-Controller(控制器)负责其他</p>
+<h3 id="mvc">MVC伪代码</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//数据层，关于数据的操作放在这里
+</span><span class="c1"></span>    <span class="nx">data</span><span class="o">:</span><span class="p">{</span>
+        <span class="nx">n</span><span class="o">:</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">||</span><span class="mi">100</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//数据初始化
+</span><span class="c1"></span>    <span class="nx">update</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//更新数据的方法
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
+    <span class="k">delete</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//删除数据的方法
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">get</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//获得数据的方法
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//视图层，关于视图的操作放在这里
+</span><span class="c1"></span>    <span class="nx">el</span><span class="o">:</span><span class="s1">&#39;挂载点&#39;</span><span class="p">,</span>
+    <span class="nx">html</span><span class="o">:</span><span class="s1">&#39;需要插入元素内的HTML内容&#39;</span><span class="p">,</span>
+    <span class="nx">render</span><span class="p">(</span><span class="s1">&#39;渲染html&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//控制层，关于事件监听的放到这里
+</span><span class="c1"></span>    <span class="c1">//找到重要的元素绑定事件
+</span><span class="c1"></span>    <span class="c1">//如果触发事件调用更改数据方法及渲染方法
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;找到A&#39;</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;找到B&#39;</span><span class="p">)</span>
+    <span class="nx">b</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+        <span class="c1">//调用数据层方法更改数据
+</span><span class="c1"></span>        <span class="c1">//调用视图层方法渲染页面
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><h3 id="eventbus--api">EventBus 有哪些 API，是做什么用的，给出伪代码示例</h3>
+<p>eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化</p>
+<p>eventbus包含很多方法，on方法可以监听事件，trigger方法可以触发事件，off卸载监听。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//伪代码
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">$</span> <span class="nx">from</span> <span class="s1">&#39;jquery&#39;</span>
+<span class="kr">const</span> <span class="nx">eventbus</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span><span class="c1">//返回一个eventbus的所有方法的对象
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">model</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//数据层
+</span><span class="c1"></span>    <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s1">&#39;数据&#39;</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">,</span>
+    <span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="p">{</span>
+        <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">model</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span><span class="c1">//更新数据
+</span><span class="c1"></span>        <span class="nx">eventbus</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;更新数据&#39;</span><span class="p">)</span><span class="c1">//触发事件 
+</span><span class="c1"></span>    <span class="p">}</span>
+    
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">View</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="o">:</span><span class="s1">&#39;挂载点&#39;</span><span class="err">，</span>
+    <span class="nx">html</span><span class="o">:</span><span class="s1">&#39;&lt;div&gt;{{内容}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">render</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">View</span><span class="p">.</span><span class="nx">html</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;{{n}}&#39;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">View</span><span class="p">.</span><span class="nx">el</span><span class="p">)</span><span class="c1">//更换新的内容渲染进页面
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">control</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span><span class="c1">//初始化页面
+</span><span class="c1"></span>        <span class="nx">autoBindEvents</span><span class="p">(</span><span class="p">)</span>
+        <span class="nx">eventbus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;更新数据&#39;</span><span class="p">,</span><span class="p">(</span><span class="p">)</span><span class="p">=&gt;</span><span class="p">{</span><span class="c1">//监听数据层的eventbus.trigger如果有被触发说明数据有更新从而进行渲染
+</span><span class="c1"></span>            <span class="nx">View</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+        <span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span>
+    
+    <span class="nx">add</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span><span class="nx">n</span><span class="o">:</span> <span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//改变数据方法
+</span><span class="c1"></span>    <span class="nx">minus</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span><span class="nx">n</span><span class="o">:</span> <span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//改变数据
+</span><span class="c1"></span>    <span class="c1">//监听改变数据的按钮
+</span><span class="c1"></span>    <span class="nx">autoBindEvents</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="s1">&#39;app1&#39;</span><span class="p">,</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//当然当需求更复杂的时候我们可以将eventbus写成一个类，让生成的实例对象继承eventbus，这样每个对象都拥有了可以触发和监听的功能，相当灵活
+</span><span class="c1"></span>
+</code></pre></div><h3 id="heading">表驱动编程是做什么的（可以自己查查资料）</h3>
+<p>定义:表驱动编程是一种使我们可以再表中查找信息，而不必写很多逻辑语句（if或case）来把它们找出来的方法，事实上，任何信息都可以通过表来挑选，再简单情况下用逻辑语句是更简单的，但是一旦需要判断条件增多那我们可能要写大量重复的判断语句，这时候我们适当的用表中提取出的值来写条件判断将事半功倍。</p>
+<h3 id="heading-1">我是如何理解模块化的</h3>
+<ul>
+<li>避免命名冲突(减少命名空间污染)</li>
+<li>更好的分离, 按需加载</li>
+<li>更高复用性</li>
+<li>高可维护性</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>VScode使用VIM小结</title>
+			<link>https://wuchuan.monster/posts/vscode%E4%B8%8Evim/</link>
+			<pubDate>Tue, 14 Jan 2020 13:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/vscode%E4%B8%8Evim/</guid>
+			<description>移动类（motion） h（左）、l（右）、j（上）、k（下）、f（front）、b（back）、u（up）
+编辑类（operator） d（delete）、i（insert）、a（append）、c（change）、y（copy）、p（paste）
+多行编辑添加一样的内容  CTRL+v 然后 a/A 或者 i/I 插入内容  复制、剪切、粘贴(普通模式、可视模式)  复制：yy/Y 复制一行 剪切：dd/D 剪切或删除一行 粘贴：p/P 粘贴（粘贴的地方不同)  其他  w 光标到单词末尾 b 光标到单词开头 x 删除一个字符 r/R 替换一个字符/替换模式 $ 到行尾 ^ 到行头 gg 到文本开头 G 到文本末尾 u 撤消最后一次修改 o 在当前行的下边插入新行 O 在当前行的上边插入新行 50% 移动到文本中间（数字可改） I 到首行插入 A 在当前行插入文本  </description>
+			<content type="html"><![CDATA[<h3 id="motion">移动类（motion）</h3>
+<p>h（左）、l（右）、j（上）、k（下）、f（front）、b（back）、u（up）</p>
+<h3 id="operator">编辑类（operator）</h3>
+<p>d（delete）、i（insert）、a（append）、c（change）、y（copy）、p（paste）</p>
+<h3 id="heading">多行编辑添加一样的内容</h3>
+<ol>
+<li>CTRL+v</li>
+<li>然后 a/A 或者 i/I 插入内容</li>
+</ol>
+<h3 id="heading-1">复制、剪切、粘贴(普通模式、可视模式)</h3>
+<ul>
+<li>复制：yy/Y 复制一行</li>
+<li>剪切：dd/D 剪切或删除一行</li>
+<li>粘贴：p/P 粘贴（粘贴的地方不同)</li>
+</ul>
+<h3 id="heading-2">其他</h3>
+<ul>
+<li>w  光标到单词末尾</li>
+<li>b  光标到单词开头</li>
+<li>x  删除一个字符</li>
+<li>r/R 替换一个字符/替换模式</li>
+<li>$  到行尾</li>
+<li>^  到行头</li>
+<li>gg 到文本开头</li>
+<li>G  到文本末尾</li>
+<li>u  撤消最后一次修改</li>
+<li>o   在当前行的下边插入新行</li>
+<li>O   在当前行的上边插入新行</li>
+<li>50% 移动到文本中间（数字可改）</li>
+<li>I 到首行插入</li>
+<li>A 在当前行插入文本</li>
+</ul>
+<p><img src="/images/vim%E9%94%AE%E4%BD%8D%E5%9B%BE.gif" alt="键位图"></p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>flex布局</title>
@@ -1492,6 +1701,409 @@ git commit -v
 git pull
 git push origin master
 </code></pre>]]></content>
+		</item>
+		
+		<item>
+			<title>小结</title>
+			<link>https://wuchuan.monster/posts/%E5%B0%8F%E7%BB%93/</link>
+			<pubDate>Thu, 26 Dec 2019 13:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/%E5%B0%8F%E7%BB%93/</guid>
+			<description>什么是闭包？闭包的用途是什么？闭包的缺点是什么？ MDN 对闭包的定义为：
+闭包是指那些能够访问自由变量的函数。
+那什么是自由变量呢？
+自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。
+由此，我们可以看出闭包共有两部分组成：
+闭包 = 函数 + 函数能够访问的自由变量
+举个例子：
+var a = 1;function foo() {console.log(a);}foo();用途:
+  希望一个变量长期保存内存中；
+  避免全局变量污染；
+  私有成员的存在。
+  闭包的缺点：
+  常驻内存，增加内存使用量；
+  使用不当造成内存泄漏。
+  call、apply、bind 的用法分别是什么？ call 函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。
+var obj = {};var f = function () {return this;};f() === window // truef.call(obj) === obj // truecall方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象。</description>
+			<content type="html"><![CDATA[<h3 id="heading">什么是闭包？闭包的用途是什么？闭包的缺点是什么？</h3>
+<p>MDN 对闭包的定义为：</p>
+<p>闭包是指那些能够访问自由变量的函数。</p>
+<p>那什么是自由变量呢？</p>
+<p>自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。</p>
+<p>由此，我们可以看出闭包共有两部分组成：</p>
+<p>闭包 = 函数 + 函数能够访问的自由变量</p>
+<p>举个例子：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>用途:</p>
+<ol>
+<li>
+<p>希望一个变量长期保存内存中；</p>
+</li>
+<li>
+<p>避免全局变量污染；</p>
+</li>
+<li>
+<p>私有成员的存在。</p>
+</li>
+</ol>
+<p>闭包的缺点：</p>
+<ol>
+<li>
+<p>常驻内存，增加内存使用量；</p>
+</li>
+<li>
+<p>使用不当造成内存泄漏。</p>
+</li>
+</ol>
+<h3 id="callapplybind-">call、apply、bind 的用法分别是什么？</h3>
+<h4 id="call">call</h4>
+<p>函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+
+<span class="nx">f</span><span class="p">(</span><span class="p">)</span> <span class="o">===</span> <span class="nb">window</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">f</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">===</span> <span class="nx">obj</span> <span class="c1">// true
+</span></code></pre></div><p>call方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象。</p>
+<h4 id="apply">apply</h4>
+<p>apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">thisValue</span><span class="p">,</span> <span class="p">[</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="p">...</span><span class="p">]</span><span class="p">)</span>
+</code></pre></div><p>apply方法的第一个参数也是this所要指向的那个对象，如果设为null或undefined，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在call方法中必须一个个添加，但是在apply方法中，必须以数组形式添加。</p>
+<h4 id="bind">bind</h4>
+<p>bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。如果bind方法的第一个参数是null或undefined，等于将this绑定到全局对象，函数运行时this指向顶层对象（浏览器为window）。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">inc</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">100</span>
+<span class="p">}</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">.</span><span class="nx">inc</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">count</span> <span class="c1">// 101
+</span></code></pre></div><p>上面代码中，bind方法将inc方法内部的this，绑定到obj对象。结果调用func函数以后，递增的就是obj内部的count属性。</p>
+<h3 id="-10--http-">请说出至少 10 个 HTTP 状态码，并描述各状态码的意义。</h3>
+<p>例如：状态码 200 表示响应成功。</p>
+<h4 id="2xx">2xx成功</h4>
+<p>这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</p>
+<h4 id="200-ok">200 OK</h4>
+<p>请求已成功，请求所希望的响应头或数据体将随此响应返回。实际的响应将取决于所使用的请求方法。在GET请求中，响应将包含与请求的资源相对应的实体。在POST请求中，响应将包含描述或操作结果的实体。</p>
+<h4 id="404-not-found">404 Not Found</h4>
+<p>请求失败，请求所希望得到的资源未被在服务器上发现，但允许用户的后续请求。没有信息能够告诉用户这个状况到底是暂时的还是永久的。假如服务器知道情况的话，应当使用410状态码来告知旧资源因为某些内部的配置机制问题，已经永久的不可用，而且没有任何可以跳转的地址。404这个状态码被广泛应用于当服务器不想揭示到底为何请求被拒绝或者没有其他适合的响应可用的情况下。</p>
+<h4 id="505-http-version-not-supported">505 HTTP Version Not Supported</h4>
+<p>服务器不支持，或者拒绝支持在请求中使用的HTTP版本。这暗示着服务器不能或不愿使用与客户端相同的版本。响应中应当包含一个描述了为何版本不被支持以及服务器支持哪些协议的实体。</p>
+<h4 id="204-no-content">204 No Content</h4>
+<p>服务器成功处理了请求，没有返回任何内容。</p>
+<h4 id="205-reset-content">205 Reset Content</h4>
+<p>服务器成功处理了请求，但没有返回任何内容。与204响应不同，此响应要求请求者重置文档视图。</p>
+<h4 id="3xx">3xx重定向</h4>
+<p>这类状态码代表需要客户端采取进一步的操作才能完成请求。通常，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的Location域中指明。</p>
+<h4 id="4xx">4xx客户端错误</h4>
+<p>这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个HEAD请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容。</p>
+<h4 id="5xx">5xx服务器错误</h4>
+<p>表示服务器无法完成明显有效的请求。这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。这些状态码适用于任何响应方法。</p>
+<p>当且仅当后续的请求所使用的方法是GET或者HEAD时，用户浏览器才可以在没有用户介入的情况下自动提交所需要的后续请求。客户端应当自动监测无限循环重定向（例如：A→B→C→……→A或A→A），因为这会导致服务器和客户端大量不必要的资源消耗。按照HTTP/1.0版规范的建议，浏览器不应自动访问超过5次的重定向。</p>
+<p>服务器不支持当前请求所需要的某个功能。当服务器无法识别请求的方法，并且无法支持其对任何资源的请求。（例如，网络服务API的新功能）</p>
+<h4 id="504-gateway-timeout">504 Gateway Timeout</h4>
+<p>作为网关或者代理工作的服务器尝试执行请求时，未能及时从上游服务器（URI标识出的服务器，例如HTTP、FTP、LDAP）或者辅助服务器（例如DNS）收到响应。
+注意：某些代理服务器在DNS查询超时时会返回400或者500错误。</p>
+<h4 id="418-im-a-teapotrfc-2324">418 I'm a teapot（RFC 2324）</h4>
+<p>本操作码是在1998年作为IETF的传统愚人节笑话, 在RFC 2324超文本咖啡壶控制协议'中定义的，并不需要在真实的HTTP服务器中定义。当一个控制茶壶的HTCPCP收到BREW或POST指令要求其煮咖啡时应当回传此错误。这个HTTP状态码在某些网站（包括Google.com）与项目（如Node.js、ASP.NET和Go语言）中用作彩蛋。</p>
+<h4 id="402-payment-required">402 Payment Required</h4>
+<p>该状态码是为了将来可能的需求而预留的。该状态码最初的意图可能被用作某种形式的数字现金或在线支付方案的一部分，但几乎没有哪家服务商使用，而且这个状态码通常不被使用。如果特定开发人员已超过请求的每日限制，Google Developers API会使用此状态码。</p>
+<h4 id="205-reset-content-1">205 Reset Content</h4>
+<p>服务器成功处理了请求，但没有返回任何内容。与204响应不同，此响应要求请求者重置文档视图。</p>
+<h3 id="heading-1">著名面试题：</h3>
+<p>如何实现数组去重？
+假设有数组 array = [1,5,2,3,4,2,3,1,3,4]
+你要写一个函数 unique，使得
+unique(array) 的值为 [1,5,2,3,4]
+也就是把重复的值都去掉，只保留不重复的值。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">unique</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">newArray</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">j</span> <span class="o">=</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">newArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">newArray</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">unique</span><span class="p">(</span><span class="p">)</span><span class="c1">//[5, 2, 1, 3, 4]
+</span><span class="c1"></span>
+<span class="c1">//map
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">unique</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">unique</span><span class="p">(</span><span class="p">)</span><span class="c1">//[1, 5, 2, 3, 4]
+</span><span class="c1"></span>
+<span class="c1">//set
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">unique</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">set</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">unique</span><span class="p">(</span><span class="p">)</span><span class="c1">//[1, 5, 2, 3, 4]
+</span></code></pre></div><p>map方法运算时间和性能比较好，set方法比较简单，易懂。</p>
+<h3 id="dom-">DOM 事件相关</h3>
+<pre><code>* 什么是事件委托？
+
+
+  事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。
+  原理：事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？就是事件从最深的节点开始，然后逐步向上传播事件，举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。
+
+
+
+* 怎么阻止默认动作？
+  DOM中提供preventDefault()方法来取消事件默认行为，但是只有当cancelable属性设置为true的事件，才可以使用preventDefault()来取消事件默认行为，使用event对象在事件函数中调用就行
+</code></pre>
+<p>IE中提供的是returnValue属性，默认为true，当它设置为false时，就是取消事件默认行为，也是用event对象在事件函数中调用</p>
+<p>jQuery中提供了preventDefault()方法来阻止元素的默认行为，只需要用event对象来调用就好，即event.preventDefault()</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">stopDefault</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">{</span>  
+   <span class="k">if</span><span class="p">(</span><span class="nx">e</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+      <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">returnValue</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>  
+   <span class="p">}</span>  
+   <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>  
+  <span class="p">}</span><span class="p">;</span>  
+</code></pre></div><pre><code>* 怎么阻止事件冒泡？
+DOM中提供stopPropagation()方法，但IE不支持，使用event对象在事件函数中调用就行。
+</code></pre>
+<p>IE中提供的是，cancelBubble属性，默认为false，当它设置为true时，就是阻止事件冒泡，也是用event对象在事件函数中调用</p>
+<p>jQuery中提供了stopPropagation()方法来停止事件冒泡，当需要时，只需用用event对象来调用就行，即event.stopPropagation()。
+例子:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">stopBubble</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>  
+ <span class="k">if</span><span class="p">(</span><span class="nx">e</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">)</span><span class="p">{</span>  
+      <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  
+    <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">cancelBubble</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  
+  <span class="p">}</span>  
+<span class="p">}</span><span class="p">;</span>  
+</code></pre></div><h3 id="-js-">你如何理解 JS 的继承？</h3>
+<pre><code>* 基于原型的继承
+  构造函数、原型和实例之间的关系：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个原型对象的指针。
+</code></pre>
+<p>继承的本质就是复制，即重写原型对象，代之以一个新类型的实例。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">SuperType</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">property</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">SuperType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getSuperValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">property</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">SubType</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">subproperty</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 这里是关键，创建SuperType的实例，并将该实例赋值给SubType.prototype
+</span><span class="c1"></span><span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperType</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> 
+
+<span class="nx">SubType</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getSubValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">subproperty</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">getSuperValue</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// true
+</span></code></pre></div><pre><code>* 基于 class 的继承
+Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
+extends关键字主要用于类声明或者类表达式中，以创建一个类，该类是另一个类的子类。其中constructor表示构造函数，一个类中只能有一个构造函数，有多个会报出SyntaxError错误,如果没有显式指定构造方法，则会添加默认的 constructor方法，使用例子如下。
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+    <span class="c1">// constructor
+</span><span class="c1"></span>    <span class="nx">constructor</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Getter
+</span><span class="c1"></span>    <span class="nx">get</span> <span class="nx">area</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">calcArea</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Method
+</span><span class="c1"></span>    <span class="nx">calcArea</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">.</span><span class="nx">area</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// 输出 200
+</span><span class="c1"></span>
+<span class="c1">// 继承
+</span><span class="c1"></span><span class="kr">class</span> <span class="nx">Square</span> <span class="kr">extends</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span> <span class="nx">length</span><span class="p">)</span><span class="p">;</span>
+    
+    <span class="c1">// 如果子类中存在构造函数，则需要在使用“this”之前首先调用 super()。
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Square&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">get</span> <span class="nx">area</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">square</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">square</span><span class="p">.</span><span class="nx">area</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// 输出 100
+</span></code></pre></div><p>没有“继承”机制的话， JavaScript 中的类就只是一个空架子。</p>
+<h3 id="promise">Promise</h3>
+<pre><code>* Promise 的用途
+    * Promise 对象是 JavaScript 的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。
+
+* 如何创建一个 new Promise
+    * return new Promise((resolve,reject)=&gt;{})
+
+* 如何使用 Promise.prototype.then
+    * then() 方法返回一个 Promise。它最多需要有两个参数：Promise 的成功和失败情况的回调函数。
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;Success!&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nx">promise1</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="p">;</span>
+  <span class="c1">// expected output: &#34;Success!&#34;
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><pre><code>* 如何使用 Promise.all
+    * Promise.all(iterable) 方法返回一个 Promise 实例，此实例在 iterable 参数内所有的 promise 都“完成（resolved）”或参数中不包含 promise 时回调完成（resolve）；如果参数中  promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">promise2</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">promise3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="p">[</span><span class="nx">promise1</span><span class="p">,</span> <span class="nx">promise2</span><span class="p">,</span> <span class="nx">promise3</span><span class="p">]</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// expected output: Array [3, 42, &#34;foo&#34;]
+</span></code></pre></div><pre><code>* 如何使用 Promise.race
+    Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">promise1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">promise2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">(</span><span class="p">[</span><span class="nx">promise1</span><span class="p">,</span> <span class="nx">promise2</span><span class="p">]</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="p">;</span>
+  <span class="c1">// Both resolve, but promise2 is faster
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="c1">// expected output: &#34;two&#34;
+</span></code></pre></div><h3 id="heading-2">说说跨域</h3>
+<pre><code>* 什么是同源
+    如果俩个url协议相同、域名相同、端口相同,那么这俩个url就是同源的，不同源的页面之间，不准互相访问数据。同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据。
+
+* 什么是跨域
+    跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对 JavaScript 施加的安全限制。
+
+    
+
+* JSONP 跨域
+    我们在跨域的时候由于当前浏览器不支持CORS或者因为某些条件不支持CORS，我们必须使用另外一种方式来跨域，于是我们就请求一个JS文件，这个JS文件会执行一个回调，回调里面就有我们的数据；
+    回调的名字是什么？
+    回调名字是随机生成的，随机数，我们把这个名字已callback的参数传给后台，后台会把这个函数再次返回给我们并执行。
+    优点：
+    1. 兼容IE
+    2. 可以跨域
+    缺点：
+    1. 由于它是script标签，所以他读不到AJAX那么精确的状态是什么，拿不到状态码和HEADER他只知道成功和失败
+    2. 由于是script标签，所以他只能发GET请求；JSONP不支持POST
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">addScriptTag</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;type&#34;</span><span class="p">,</span><span class="s2">&#34;text/javascript&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">addScriptTag</span><span class="p">(</span><span class="s1">&#39;http://example.com/ip?callback=foo&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your public IP address is: &#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">ip</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>上面代码通过动态添加<!-- raw HTML omitted -->元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。</p>
+<pre><code>* CORS 跨域
+    跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。
+</code></pre>
+<p>比如，站点 <a href="http://domain-a.com">http://domain-a.com</a> 的某 HTML 页面通过 <!-- raw HTML omitted --> 的 src 请求 <a href="http://domain-b.com/image.jpg">http://domain-b.com/image.jpg</a>。网络上的许多页面都会加载来自不同域的CSS样式表，图像和脚本等资源。
+出于安全原因，浏览器限制从脚本内发起的跨源HTTP请求。 例如，XMLHttpRequest和Fetch API遵循同源策略。 这意味着使用这些API的Web应用程序只能从加载应用程序的同一个域请求HTTP资源，除非响应报文包含了正确CORS响应头。</p>
+<p>（译者注：这段描述不准确，并不一定是浏览器限制了发起跨站请求，也可能是跨站请求可以正常发起，但是返回结果被浏览器拦截了。）
+跨域资源共享（ CORS ）机制允许 Web 应用服务器进行跨域访问控制，从而使跨域数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 XMLHttpRequest 或 Fetch ）使用 CORS，以降低跨域 HTTP 请求所带来的风险。
+语法：
+Access-Control-Allow-Origin: <!-- raw HTML omitted --> | *</p>
+<h3 id="heading-3">数组排序</h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">minIndex</span> <span class="o">=</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">min</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">min</span><span class="p">(</span>
+    <span class="p">[</span><span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span> <span class="nx">min</span><span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">)</span><span class="p">]</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">sort</span> <span class="o">=</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">numbers</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">minIndex</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span>
+    <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span>
+    <span class="nx">numbers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nx">min</span><span class="p">]</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">sort</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span><span class="p">)</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">?</span> <span class="nx">numbers</span> <span class="o">:</span>
+      <span class="nx">numbers</span><span class="p">.</span><span class="nx">reverse</span><span class="p">(</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="p">)</span> <span class="c1">//[1, 2, 3, 4, 5, 5, 8, 9]
+</span></code></pre></div><h3 id="heading-4">前端理解</h3>
+<p>刚接触前端的时候，我以为网页就是HTML和CSS，学了一段时间之后发现，单纯的HTML和CSS无法与人直接打交道，必须学习JavaScript脚本语言，我的第一门编程语言。</p>
+<p>JavaScript又引出了原来所不知道的知识，比如说:</p>
+<ul>
+<li>HTTP</li>
+<li>浏览器性能</li>
+<li>与用户的交互(AJAX)</li>
+<li>安全相关(跨域，数据安全，axios)</li>
+<li>计算机的底层</li>
+<li>浏览器的底层(JS引擎)</li>
+<li>URL</li>
+<li>算法</li>
+</ul>
+<p>有了JS前端才能称之为程序员，学好JS就必须了解底层，这样才能知道如何优化性能，提高内存使用率；同时JS是一门高效的语言，因为他是单线程。
+甚至基于JS还发展出了Nodejs,可以处理一些简单的后端开发。
+网页上也能开发应用了。
+因为有了交互，前端可以做的很复杂，从而引出了一些前端必学的库和框架，jQuery、Vue、React、Angular等。
+基于Flutter还可以开发手机应用。</p>
+<h3 id="heading-5">总结：</h3>
+<p>前端的技术更新速度非常快，不进则退，必须不断的学习新的技术。学习一些经典的库和框架思维和写法。基础很重要，也就是底层，可以决定我们以后是否可以造出好的轮子。</p>
+]]></content>
 		</item>
 		
 		<item>

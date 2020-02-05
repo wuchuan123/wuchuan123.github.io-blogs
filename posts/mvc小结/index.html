@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zn-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="浅析MVC">
+<meta itemprop="description" content="MVC 三个对象分别做什么，给出伪代码示例 MVC包括三个对象，分别是M、V、C M-Model(数据模型) 负责操作所有数据 V-View(视图)负责所有UI界面 C-Controller(控制器)负责其他
+MVC伪代码 const m = {//数据层，关于数据的操作放在这里 data:{n:parseInt(localStorage.getItem(&#39;number&#39;)||100)},//数据初始化 update:function (data) {//更新数据的方法 },delete:function (data) {//删除数据的方法 },get:function (data) {//获得数据的方法 }}const v = {//视图层，关于视图的操作放在这里 el:&#39;挂载点&#39;,html:&#39;需要插入元素内的HTML内容&#39;,render(&#39;渲染html&#39;)}const c = {//控制层，关于事件监听的放到这里 //找到重要的元素绑定事件 //如果触发事件调用更改数据方法及渲染方法 const a =$(&#39;找到A&#39;)const b = $(&#39;找到B&#39;)b.on(&#39;click&#39;,function(){//调用数据层方法更改数据 //调用视图层方法渲染页面 })}EventBus 有哪些 API，是做什么用的，给出伪代码示例 eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化">
+<meta itemprop="datePublished" content="2020-02-05T10:12:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-05T10:12:19&#43;08:00" />
+<meta itemprop="wordCount" content="139">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="浅析MVC" />
+<meta property="og:description" content="MVC 三个对象分别做什么，给出伪代码示例 MVC包括三个对象，分别是M、V、C M-Model(数据模型) 负责操作所有数据 V-View(视图)负责所有UI界面 C-Controller(控制器)负责其他
+MVC伪代码 const m = {//数据层，关于数据的操作放在这里 data:{n:parseInt(localStorage.getItem(&#39;number&#39;)||100)},//数据初始化 update:function (data) {//更新数据的方法 },delete:function (data) {//删除数据的方法 },get:function (data) {//获得数据的方法 }}const v = {//视图层，关于视图的操作放在这里 el:&#39;挂载点&#39;,html:&#39;需要插入元素内的HTML内容&#39;,render(&#39;渲染html&#39;)}const c = {//控制层，关于事件监听的放到这里 //找到重要的元素绑定事件 //如果触发事件调用更改数据方法及渲染方法 const a =$(&#39;找到A&#39;)const b = $(&#39;找到B&#39;)b.on(&#39;click&#39;,function(){//调用数据层方法更改数据 //调用视图层方法渲染页面 })}EventBus 有哪些 API，是做什么用的，给出伪代码示例 eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wuchuan.monster/posts/mvc%E5%B0%8F%E7%BB%93/" />
+<meta property="article:published_time" content="2020-02-05T10:12:19+08:00" />
+<meta property="article:modified_time" content="2020-02-05T10:12:19+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析MVC"/>
+<meta name="twitter:description" content="MVC 三个对象分别做什么，给出伪代码示例 MVC包括三个对象，分别是M、V、C M-Model(数据模型) 负责操作所有数据 V-View(视图)负责所有UI界面 C-Controller(控制器)负责其他
+MVC伪代码 const m = {//数据层，关于数据的操作放在这里 data:{n:parseInt(localStorage.getItem(&#39;number&#39;)||100)},//数据初始化 update:function (data) {//更新数据的方法 },delete:function (data) {//删除数据的方法 },get:function (data) {//获得数据的方法 }}const v = {//视图层，关于视图的操作放在这里 el:&#39;挂载点&#39;,html:&#39;需要插入元素内的HTML内容&#39;,render(&#39;渲染html&#39;)}const c = {//控制层，关于事件监听的放到这里 //找到重要的元素绑定事件 //如果触发事件调用更改数据方法及渲染方法 const a =$(&#39;找到A&#39;)const b = $(&#39;找到B&#39;)b.on(&#39;click&#39;,function(){//调用数据层方法更改数据 //调用视图层方法渲染页面 })}EventBus 有哪些 API，是做什么用的，给出伪代码示例 eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>浅析MVC</title>
+	<link rel="stylesheet" href="https://wuchuan.monster/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://wuchuan.monster">Wu Chuan Blogs</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://wuchuan.monster/posts/">Posts</a>
+				<a href="https://wuchuan.monster/wuchuan">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener me" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://wuchuan.monster/posts/">Posts</a></li>
+			<li><a href="https://wuchuan.monster/wuchuan">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 5, 2020</span></div>
+				<h1>浅析MVC</h1>
+			</header>
+			<div class="content">
+				<h3 id="mvc-">MVC 三个对象分别做什么，给出伪代码示例<a href="#mvc-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MVC包括三个对象，分别是M、V、C
+M-Model(数据模型) 负责操作所有数据
+V-View(视图)负责所有UI界面
+C-Controller(控制器)负责其他</p>
+<h3 id="mvc">MVC伪代码<a href="#mvc" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">m</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//数据层，关于数据的操作放在这里
+</span><span class="c1"></span>    <span class="nx">data</span><span class="o">:</span><span class="p">{</span>
+        <span class="nx">n</span><span class="o">:</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">||</span><span class="mi">100</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//数据初始化
+</span><span class="c1"></span>    <span class="nx">update</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//更新数据的方法
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
+    <span class="k">delete</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//删除数据的方法
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">get</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//获得数据的方法
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//视图层，关于视图的操作放在这里
+</span><span class="c1"></span>    <span class="nx">el</span><span class="o">:</span><span class="s1">&#39;挂载点&#39;</span><span class="p">,</span>
+    <span class="nx">html</span><span class="o">:</span><span class="s1">&#39;需要插入元素内的HTML内容&#39;</span><span class="p">,</span>
+    <span class="nx">render</span><span class="p">(</span><span class="s1">&#39;渲染html&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//控制层，关于事件监听的放到这里
+</span><span class="c1"></span>    <span class="c1">//找到重要的元素绑定事件
+</span><span class="c1"></span>    <span class="c1">//如果触发事件调用更改数据方法及渲染方法
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;找到A&#39;</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;找到B&#39;</span><span class="p">)</span>
+    <span class="nx">b</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+        <span class="c1">//调用数据层方法更改数据
+</span><span class="c1"></span>        <span class="c1">//调用视图层方法渲染页面
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><h3 id="eventbus--api">EventBus 有哪些 API，是做什么用的，给出伪代码示例<a href="#eventbus--api" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>eventbus也是一种设计模式或者框架，主要用于组件/对象间通信的优化简化</p>
+<p>eventbus包含很多方法，on方法可以监听事件，trigger方法可以触发事件，off卸载监听。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//伪代码
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">$</span> <span class="nx">from</span> <span class="s1">&#39;jquery&#39;</span>
+<span class="kr">const</span> <span class="nx">eventbus</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span><span class="c1">//返回一个eventbus的所有方法的对象
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">model</span> <span class="o">=</span> <span class="p">{</span><span class="c1">//数据层
+</span><span class="c1"></span>    <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s1">&#39;数据&#39;</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">,</span>
+    <span class="nx">update</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="p">{</span>
+        <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">model</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span><span class="c1">//更新数据
+</span><span class="c1"></span>        <span class="nx">eventbus</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;更新数据&#39;</span><span class="p">)</span><span class="c1">//触发事件 
+</span><span class="c1"></span>    <span class="p">}</span>
+    
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">View</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">el</span><span class="o">:</span><span class="s1">&#39;挂载点&#39;</span><span class="err">，</span>
+    <span class="nx">html</span><span class="o">:</span><span class="s1">&#39;&lt;div&gt;{{内容}}&lt;/div&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">render</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">View</span><span class="p">.</span><span class="nx">html</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;{{n}}&#39;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">View</span><span class="p">.</span><span class="nx">el</span><span class="p">)</span><span class="c1">//更换新的内容渲染进页面
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">control</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">container</span><span class="p">)</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span><span class="c1">//初始化页面
+</span><span class="c1"></span>        <span class="nx">autoBindEvents</span><span class="p">(</span><span class="p">)</span>
+        <span class="nx">eventbus</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;更新数据&#39;</span><span class="p">,</span><span class="p">(</span><span class="p">)</span><span class="p">=&gt;</span><span class="p">{</span><span class="c1">//监听数据层的eventbus.trigger如果有被触发说明数据有更新从而进行渲染
+</span><span class="c1"></span>            <span class="nx">View</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span>
+        <span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span>
+    
+    <span class="nx">add</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span><span class="nx">n</span><span class="o">:</span> <span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//改变数据方法
+</span><span class="c1"></span>    <span class="nx">minus</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">{</span><span class="nx">n</span><span class="o">:</span> <span class="nx">m</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">}</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">,</span><span class="c1">//改变数据
+</span><span class="c1"></span>    <span class="c1">//监听改变数据的按钮
+</span><span class="c1"></span>    <span class="nx">autoBindEvents</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">View</span><span class="p">.</span><span class="nx">el</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="s1">&#39;app1&#39;</span><span class="p">,</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//当然当需求更复杂的时候我们可以将eventbus写成一个类，让生成的实例对象继承eventbus，这样每个对象都拥有了可以触发和监听的功能，相当灵活
+</span><span class="c1"></span>
+</code></pre></div><h3 id="heading">表驱动编程是做什么的（可以自己查查资料）<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>定义:表驱动编程是一种使我们可以再表中查找信息，而不必写很多逻辑语句（if或case）来把它们找出来的方法，事实上，任何信息都可以通过表来挑选，再简单情况下用逻辑语句是更简单的，但是一旦需要判断条件增多那我们可能要写大量重复的判断语句，这时候我们适当的用表中提取出的值来写条件判断将事半功倍。</p>
+<h3 id="heading-1">我是如何理解模块化的<a href="#heading-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>避免命名冲突(减少命名空间污染)</li>
+<li>更好的分离, 按需加载</li>
+<li>更高复用性</li>
+<li>高可维护性</li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>139 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-02-05 10:12 &#43;0800</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>Vue安装</span>
+			</a>
+			<a class="prev-post" href="https://wuchuan.monster/posts/vscode%E4%B8%8Evim/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>VScode使用VIM小结</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://wuchuan.monster">Chuan</a> &#183; <a href="https://google.com" target="_blank" rel="noopener">Google</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://wuchuan.monster/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://wuchuan.monster/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
