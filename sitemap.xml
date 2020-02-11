@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://wuchuan.monster/posts/</loc>
-    <lastmod>2020-02-05T14:12:19+08:00</lastmod>
+    <lastmod>2020-02-11T14:12:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2020-02-05T14:12:19+08:00</lastmod>
+    <loc>https://wuchuan.monster/posts/sync/</loc>
+    <lastmod>2020-02-11T14:12:19+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://wuchuan.monster/</loc>
+    <lastmod>2020-02-11T14:12:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wuchuan.monster/posts/vue%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2020-02-05T14:12:19+08:00</lastmod>
   </url>
   

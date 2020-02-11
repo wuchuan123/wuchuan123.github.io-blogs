@@ -6,8 +6,66 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zn-cn</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Wed, 05 Feb 2020 14:12:19 +0800</lastBuildDate>
+		<lastBuildDate>Tue, 11 Feb 2020 14:12:19 +0800</lastBuildDate>
 		<atom:link href="https://wuchuan.monster/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Vue 中的 .sync 修饰符</title>
+			<link>https://wuchuan.monster/posts/sync/</link>
+			<pubDate>Tue, 11 Feb 2020 14:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/sync/</guid>
+			<description>.sync 修饰符，它只是作为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。 示例代码如下：
+&amp;lt;comp :foo.sync=&amp;#34;bar&amp;#34;&amp;gt;&amp;lt;/comp&amp;gt;会被扩展为：
+&amp;lt;comp :foo=&amp;#34;bar&amp;#34; @update:foo=&amp;#34;val =&amp;gt; bar = val&amp;#34;&amp;gt;&amp;lt;/comp&amp;gt;当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：
+this.$emit(&amp;#39;update:foo&amp;#39;, newValue)猛一看不明白，下边我么通过一个实例（弹窗的关闭事件）来说明这个代码到底是怎么运用的。
+&amp;lt;template&amp;gt;&amp;lt;div class=&amp;#34;details&amp;#34;&amp;gt;&amp;lt;myComponent :show.sync=&amp;#39;valueChild&amp;#39; style=&amp;#34;padding: 30px 20px 30px 5px;border:1px solid #ddd;margin-bottom: 10px;&amp;#34;&amp;gt;&amp;lt;/myComponent&amp;gt;&amp;lt;button @click=&amp;#34;changeValue&amp;#34;&amp;gt;toggle&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;&amp;lt;script&amp;gt;import Vue from &amp;#39;vue&amp;#39;Vue.component(&amp;#39;myComponent&amp;#39;, {template: `&amp;lt;div v-if=&amp;#34;show&amp;#34;&amp;gt;&amp;lt;p&amp;gt;默认初始值是{{show}}，所以是显示的&amp;lt;/p&amp;gt;&amp;lt;button @click.stop=&amp;#34;closeDiv&amp;#34;&amp;gt;关闭&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;`,props:[&amp;#39;show&amp;#39;],methods: {closeDiv() {this.$emit(&amp;#39;update:show&amp;#39;, false); //触发 input 事件，并传入新值 }}})export default{data(){return{valueChild:true,}},methods:{changeValue(){this.</description>
+			<content type="html"><![CDATA[<p>.sync 修饰符，它只是作为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。
+示例代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">comp</span> <span class="nt">:foo.sync</span><span class="s">=&#34;bar&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">comp</span><span class="p">&gt;</span>
+</code></pre></div><p>会被扩展为：</p>
+<div class="highlight"><pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">comp</span> <span class="nt">:foo</span><span class="s">=&#34;bar&#34;</span> <span class="err">@</span><span class="na">update</span><span class="o">:</span><span class="na">foo</span><span class="o">=</span><span class="s">&#34;val =&gt; bar = val&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">comp</span><span class="p">&gt;</span>
+</code></pre></div><p>当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：</p>
+<div class="highlight"><pre class="chroma"><code class="language-vue" data-lang="vue"><span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:foo&#39;</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">)</span>
+</code></pre></div><p>猛一看不明白，下边我么通过一个实例（弹窗的关闭事件）来说明这个代码到底是怎么运用的。</p>
+<div class="highlight"><pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">template</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;details&#34;</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">myComponent</span> <span class="o">:</span><span class="na">show.sync</span><span class="err">=</span><span class="err">&#39;</span><span class="na">valueChild</span><span class="err">&#39;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;padding: 30px 20px 30px 5px;border:1px solid #ddd;margin-bottom: 10px;&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">myComponent</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="nt">@click</span><span class="s">=&#34;changeValue&#34;</span><span class="p">&gt;</span><span class="na">toggle</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p"></span><span class="p">&gt;</span>
+<span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;myComponent&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">template</span><span class="o">:</span> <span class="sb">`</span><span class="sb">&lt;div v-if=&#34;show&#34;&gt;
+</span><span class="sb">                    &lt;p&gt;默认初始值是{{show}}，所以是显示的&lt;/p&gt;
+</span><span class="sb">                    &lt;button @click.stop=&#34;closeDiv&#34;&gt;关闭&lt;/button&gt;
+</span><span class="sb">                 &lt;/div&gt;</span><span class="sb">`</span><span class="p">,</span>
+      <span class="nx">props</span><span class="o">:</span><span class="p">[</span><span class="s1">&#39;show&#39;</span><span class="p">]</span><span class="p">,</span>
+      <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">closeDiv</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:show&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span> <span class="c1">//触发 input 事件，并传入新值
+</span><span class="c1"></span>        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">}</span><span class="p">)</span>
+<span class="kr">export</span> <span class="k">default</span><span class="p">{</span>
+    <span class="nx">data</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+        <span class="k">return</span><span class="p">{</span>
+            <span class="nx">valueChild</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
+        <span class="nx">changeValue</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">valueChild</span> <span class="o">=</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">valueChild</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div><p>动态效果如下：</p>
+<p><img src="/images/sync.gif" alt="Image"></p>
+<p>vue 修饰符sync的功能是：当一个子组件改变了一个 prop 的值时，这个变化也会同步到父组件中所绑定。如果我们不用.sync，我们想做上面的那个弹窗功能，我们也可以props传初始值，然后事件监听，实现起来也不算复杂。这里用sync实现，只是给大家提供一个思路，让其明白他的实现原理，可能有其它复杂的功能适用sync。</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Vue安装</title>
