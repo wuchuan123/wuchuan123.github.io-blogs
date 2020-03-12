@@ -13,7 +13,7 @@
 3. 默认绑定 =&gt; 绑定全局 function foo() {console.log( this.a );}var a = 2;foo(); // 24. 显示绑定（call,apply,bind)  硬绑定  function foo() {console.log(this.a);}var obj = {a: 2};var bar = function() {foo.call(obj);};bar(); // 2setTimeout(bar, 100); // 2// 硬绑定的 bar 不可能再修改它的 thisbar.">
 <meta itemprop="datePublished" content="2020-01-11T13:12:19&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-11T13:12:19&#43;08:00" />
-<meta itemprop="wordCount" content="416">
+<meta itemprop="wordCount" content="418">
 
 
 
@@ -222,11 +222,13 @@ var bar = foo()</li>
 <li>由上下文对象调用？ 绑定到那个上下文对象。</li>
 <li>默认： 在严格模式下绑定到 undefined， 否则绑定到全局对象。</li>
 </ol>
+<p>简单说，this就是属性或方法“当前”所在的对象。
+构造函数中的this，指的是实例对象。</p>
 
 			</div>
 			<hr class="post-end">
 			<footer class="post-info">
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>416 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>418 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-01-11 13:12 &#43;0800</p>
 			</footer>
 		</article>

@@ -6,8 +6,77 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zn-cn</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 11 Feb 2020 14:12:19 +0800</lastBuildDate>
+		<lastBuildDate>Mon, 02 Mar 2020 14:12:19 +0800</lastBuildDate>
 		<atom:link href="https://wuchuan.monster/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ajax</title>
+			<link>https://wuchuan.monster/posts/ajax/</link>
+			<pubDate>Mon, 02 Mar 2020 14:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/ajax/</guid>
+			<description>AJAX 包括以下几个步骤。
+ 创建 XMLHttpRequest 实例 发出 HTTP 请求 接收服务器传回的数据 更新网页数据  </description>
+			<content type="html"><![CDATA[<p>AJAX 包括以下几个步骤。</p>
+<ul>
+<li>创建 XMLHttpRequest 实例</li>
+<li>发出 HTTP 请求</li>
+<li>接收服务器传回的数据</li>
+<li>更新网页数据</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>JS碎片知识</title>
+			<link>https://wuchuan.monster/posts/js%E7%A2%8E%E7%89%87/</link>
+			<pubDate>Sun, 01 Mar 2020 14:12:19 +0800</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/js%E7%A2%8E%E7%89%87/</guid>
+			<description>语句和表达式  语句:语句是为了完成某种任务而进行的操作,例如:  var a = 1 + 3
+ 表达式:为了得到返回值得计算式(1+3叫做表达式) 语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。  JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了
+闭包： 闭包是指那些能够访问自由变量的函数。 自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。
+闭包 = 函数 + 函数能够访问的自由变量
+ 从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。 从实践角度：以下函数才算是闭包：   即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回） 在代码中引用了自由变量  &amp;amp;&amp;amp; 在语句中表示且、和的意思，在表达式中是求值。（前者常用） | 在语句中是或的意思。 || 求值，短路逻辑，常用于保底值。
+Promise 的用法，简单说就是一句话：使用then方法添加回调函数。
+let  let 的作用域在最近的{}之间 如果你在let a 之前使用a,那么报错 如果你重复let a，报错  const 1.2.3同上 4. 只有一次赋值机会</description>
+			<content type="html"><![CDATA[<h3 id="heading">语句和表达式</h3>
+<ul>
+<li>语句:语句是为了完成某种任务而进行的操作,例如:</li>
+</ul>
+<p><code>var a = 1 + 3</code></p>
+<ul>
+<li>表达式:为了得到返回值得计算式(1+3叫做表达式)</li>
+<li>语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。</li>
+</ul>
+<p>JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了</p>
+<p>闭包：
+闭包是指那些能够访问自由变量的函数。
+自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。</p>
+<p>闭包 = 函数 + 函数能够访问的自由变量</p>
+<ol>
+<li>从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。</li>
+<li>从实践角度：以下函数才算是闭包：</li>
+</ol>
+<ul>
+<li>即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）</li>
+<li>在代码中引用了自由变量</li>
+</ul>
+<p>&amp;&amp; 在语句中表示且、和的意思，在表达式中是求值。（前者常用）
+|  在语句中是或的意思。
+|| 求值，短路逻辑，常用于保底值。</p>
+<p>Promise 的用法，简单说就是一句话：使用then方法添加回调函数。</p>
+<h3 id="let">let</h3>
+<ol>
+<li>let 的作用域在最近的{}之间</li>
+<li>如果你在let a 之前使用a,那么报错</li>
+<li>如果你重复let a，报错</li>
+</ol>
+<h3 id="const">const</h3>
+<p>1.2.3同上
+4. 只有一次赋值机会</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Vue 中的 .sync 修饰符</title>
@@ -514,7 +583,21 @@ $(&amp;#39;div&amp;#39;).find(&amp;#39;h3&amp;#39;).eq(2).html(&amp;#39;Hello
 			<pubDate>Sun, 12 Jan 2020 17:43:19 +0800</pubDate>
 			
 			<guid>https://wuchuan.monster/posts/js%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</guid>
-			<description>原型,共有属性： 修改共有属性 obj.proto.toString=&#39;xxx&amp;rsquo; //不推荐 Object.prototype.toString=&#39;xxx&amp;rsquo; 修改原型 obj.__proto__=common let obj = Object.create(common)</description>
+			<description>原型,共有属性： 修改共有属性 obj.proto.toString=&#39;xxx&amp;rsquo; //不推荐 Object.prototype.toString=&#39;xxx&amp;rsquo; 修改原型 obj.__proto__=common let obj = Object.create(common)
+数组的增删改查 新建一个数组
+let arr = [1,2,3]
+let arr = new Array(1,2,3)
+let arr = new Array(3)
+转化： let arr = &amp;lsquo;1,2,3&amp;rsquo;.split(&#39;,&#39;)
+let arr = &amp;lsquo;123&amp;rsquo;.split(&#39;&#39;)
+Array.from(&amp;lsquo;123&amp;rsquo;)
+伪数组：没有数组共有属性的‘数组’
+合并数组：arr1.concat(arr2)
+截取：arr1.slice(1)
+删：delete arr[&amp;lsquo;0&amp;rsquo;] 直接改length也可删，不要随便改length
+删头部: arr.shift() 删尾部:arr.pop() 删中间:arr.splice(index,1) arr.splice(index,1,&amp;lsquo;x&amp;rsquo;)//在删除的位置添加&#39;x&amp;rsquo; arr.splice(index,1,&amp;lsquo;x&amp;rsquo;,&amp;lsquo;y&amp;rsquo;)//在删除的位置添加&#39;x&amp;rsquo;,&amp;lsquo;y&amp;rsquo;
+查看属性名： let arr=[1,2,3,4,5]; Object.keys(arr)//查属性名;Object.values(arr)//查属性值 for(let key in arr){console.log(${key}:${arr[key]})}
+查看属性名和值： for(let i =0;i&amp;lt; arr.length;i++){ console.log(${i}:${arr[i]}) } //or arr.forEach(function(x,y){ console.log(${x}:${y}) }) 原生JS实现forEach: function forEach(array,fn){ for(let i = 0; i&amp;lt;array.</description>
 			<content type="html"><![CDATA[<p>原型,共有属性：
 修改共有属性
 obj.<strong>proto</strong>.toString='xxx&rsquo; //不推荐
@@ -522,6 +605,75 @@ Object.prototype.toString='xxx&rsquo;
 修改原型
 obj.__proto__=common
 let obj = Object.create(common)</p>
+<p>数组的增删改查
+新建一个数组</p>
+<p>let arr = [1,2,3]</p>
+<p>let arr = new Array(1,2,3)</p>
+<p>let arr = new Array(3)</p>
+<p>转化：
+let arr = &lsquo;1,2,3&rsquo;.split(',')</p>
+<p>let arr = &lsquo;123&rsquo;.split('')</p>
+<p>Array.from(&lsquo;123&rsquo;)</p>
+<p>伪数组：没有数组共有属性的‘数组’</p>
+<p>合并数组：arr1.concat(arr2)</p>
+<p>截取：arr1.slice(1)</p>
+<p>删：delete arr[&lsquo;0&rsquo;]
+直接改length也可删，不要随便改length</p>
+<p>删头部: arr.shift()
+删尾部:arr.pop()
+删中间:arr.splice(index,1)
+arr.splice(index,1,&lsquo;x&rsquo;)//在删除的位置添加'x&rsquo;
+arr.splice(index,1,&lsquo;x&rsquo;,&lsquo;y&rsquo;)//在删除的位置添加'x&rsquo;,&lsquo;y&rsquo;</p>
+<p>查看属性名：
+let arr=[1,2,3,4,5];
+Object.keys(arr)//查属性名;Object.values(arr)//查属性值
+for(let key in arr){console.log(<code>${key}:${arr[key]}</code>)}</p>
+<p>查看属性名和值：
+for(let i =0;i&lt; arr.length;i++){
+console.log(<code>${i}:${arr[i]}</code>)
+}
+//or
+arr.forEach(function(x,y){
+console.log(<code>${x}:${y}</code>)
+})
+原生JS实现forEach:
+function forEach(array,fn){
+for(let i = 0; i&lt;array.length ; i++){
+fn(array[i],i,array)
+}
+}</p>
+<p>查看单个属性
+arr[0]</p>
+<p>查找某个元素是否在数组里
+arr.indexOf(item) //存在返回索引，否则返回-1</p>
+<p>使用条件查找元素
+arr.fing(item=&gt;item%2 === 0) //找第一个偶数</p>
+<p>使用条件查找元素的索引
+arr.findIndex(item=&gt;item%2===0) //找第一个偶数的索引</p>
+<p>增加数组中的元素</p>
+<ul>
+<li>
+<p>在尾部添加
+arr.push(item1,item2)</p>
+</li>
+<li>
+<p>在头部添加
+arr.unshift(item1.itme2)</p>
+</li>
+</ul>
+<p>在中间添加元素</p>
+<p>arr.splice(index,0,&lsquo;x&rsquo;) //在index处插入'x&rsquo;, 0表示删除0个元素</p>
+<p>修改数组中的元素
+反转顺序
+arr.reverse()</p>
+<p>自定义顺序
+arr.sort((a,b)=&gt;a-b)</p>
+<p>map
+n变n</p>
+<p>filter
+n变少</p>
+<p>reduce
+n变1</p>
 ]]></content>
 		</item>
 		
@@ -690,6 +842,8 @@ var bar = foo()</li>
 <li>由上下文对象调用？ 绑定到那个上下文对象。</li>
 <li>默认： 在严格模式下绑定到 undefined， 否则绑定到全局对象。</li>
 </ol>
+<p>简单说，this就是属性或方法“当前”所在的对象。
+构造函数中的this，指的是实例对象。</p>
 ]]></content>
 		</item>
 		
@@ -2349,6 +2503,109 @@ result.push(j)
 }
 return result
 }</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>DOM知识总结</title>
+			<link>https://wuchuan.monster/posts/dom/</link>
+			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+			
+			<guid>https://wuchuan.monster/posts/dom/</guid>
+			<description>常用API window.idexxx Document.getElementById(&amp;lsquo;xxx&amp;rsquo;) Document.getElementsByTagName(&amp;lsquo;div&amp;rsquo;)[0] Document.getElementsByClassName(&amp;lsquo;red&amp;rsquo;)[0] Document.querySelector(&#39;#idxxx&amp;rsquo;) Document.querySelectorAll(&#39;.red&amp;rsquo;)[0]
+获取html元素 document.documentElement
+获取head元素 document.head
+获取body元素 documnet.body
+获取窗口 window
+获取所有元素 document.all 这个document.all 第6个falsy值
+console.dir(div) 可以看原型链
+增删改查： 增： 创建一个标签节点 let div1=document.createElement(&amp;lsquo;div&amp;rsquo;) 创建一个文本节点 text1=document.createTextNode(&amp;lsquo;你好&amp;rsquo;)
+标签里插入文本 div1.appendChild(text1) div.innerText = &amp;lsquo;你好&amp;rsquo; 或者div1.textContent = &amp;lsquo;你好&amp;rsquo;
+插入到页面中： 必须插入到head或者body中才生效 document.body.appendChild(div) 或者 已在页面中的元素.appendChild(div)
+删： 旧方法：parentNode.childChild(childNode) 新方法:childNode.remove()
+改属性: 改class: div.className = &amp;lsquo;red blue&amp;rsquo; (全覆盖) 改class: div.classList.add(&amp;lsquo;red&amp;rsquo;) 改style: div.style=&#39;width:100px;color:blue&amp;rsquo; 改style的一部分:div.style.width=&#39;200px&amp;rsquo; 大小写:div.style.backgroundColor=&#39;white&amp;rsquo; 改data-*属性：div.dataset.x=&#39;frank&amp;rsquo;
+读标准属性: div.classList/a.href div.getAttribute(&amp;lsquo;class&amp;rsquo;)/a.getAttribute(&amp;lsquo;href&amp;rsquo;)
+改事件处理函数: div.onclick
+div.addEventListener
+改内容： 改文本内容 div.innerText=&#39;xxx&amp;rsquo; div.textContent=&#39;xxx&amp;rsquo;
+改html内容 div.innerHTML=&#39;重要内容&amp;rsquo;</description>
+			<content type="html"><![CDATA[<p>常用API
+window.idexxx 
+Document.getElementById(&lsquo;xxx&rsquo;)
+Document.getElementsByTagName(&lsquo;div&rsquo;)[0]
+Document.getElementsByClassName(&lsquo;red&rsquo;)[0]
+Document.querySelector('#idxxx&rsquo;)
+Document.querySelectorAll('.red&rsquo;)[0]</p>
+<p>获取html元素
+document.documentElement</p>
+<p>获取head元素
+document.head</p>
+<p>获取body元素
+documnet.body</p>
+<p>获取窗口
+window</p>
+<p>获取所有元素
+document.all
+这个document.all 第6个falsy值</p>
+<p>console.dir(div)  可以看原型链</p>
+<p>增删改查：
+增：
+创建一个标签节点
+let div1=document.createElement(&lsquo;div&rsquo;)
+创建一个文本节点
+text1=document.createTextNode(&lsquo;你好&rsquo;)</p>
+<p>标签里插入文本
+div1.appendChild(text1)
+div.innerText = &lsquo;你好&rsquo; 或者div1.textContent = &lsquo;你好&rsquo;</p>
+<p>插入到页面中：
+必须插入到head或者body中才生效
+document.body.appendChild(div) 
+或者  已在页面中的元素.appendChild(div)</p>
+<p>删：
+旧方法：parentNode.childChild(childNode)
+新方法:childNode.remove()</p>
+<p>改属性:
+改class: div.className = &lsquo;red blue&rsquo; (全覆盖)
+改class: div.classList.add(&lsquo;red&rsquo;)
+改style: div.style='width:100px;color:blue&rsquo;
+改style的一部分:div.style.width='200px&rsquo;
+大小写:div.style.backgroundColor='white&rsquo;
+改data-*属性：div.dataset.x='frank&rsquo;</p>
+<p>读标准属性:
+div.classList/a.href
+div.getAttribute(&lsquo;class&rsquo;)/a.getAttribute(&lsquo;href&rsquo;)</p>
+<p>改事件处理函数:
+div.onclick</p>
+<p>div.addEventListener</p>
+<p>改内容：
+改文本内容
+div.innerText='xxx&rsquo;
+div.textContent='xxx&rsquo;</p>
+<p>改html内容
+div.innerHTML='<!-- raw HTML omitted -->重要内容<!-- raw HTML omitted -->&rsquo;</p>
+<p>改标签
+div.innerHTML=&rsquo;'//先清空
+div.appendChild(div2)//再加内容</p>
+<p>改爸爸
+newParent.appendChild(div)</p>
+<p>查
+查爸爸
+node.parentNode 或者 node.parentElement</p>
+<p>查爷爷
+node.parentNode.parentNode</p>
+<p>查子代
+node.childNodes 或者node.children</p>
+<p>查兄弟姐妹
+node.parentNode.childNodes
+node.parentNode.children</p>
+<p>查看老大
+node.firstChild
+查看老幺
+node.lastChild
+查看上一个哥哥/姐姐
+node.previousSibling
+查看下一个弟弟/妹妹
+node.nextSibling</p>
 ]]></content>
 		</item>
 		
